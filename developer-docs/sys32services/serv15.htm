@@ -1,0 +1,108 @@
+<html>
+
+<head>
+
+
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>System32 Services</title>
+<base target="_self">
+<meta name="Microsoft Border" content="none"></head>
+
+<body bgcolor="#000000" text="#FFFFFF" link="#FFFFFF" vlink="#FFFFFF" alink="#FFFFFF" bgproperties="fixed">
+
+<p><font size="4" face="Century Gothic"><strong>System32 Function
+15 (0Fh) - Delete Descriptor</strong></font></p>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" height="23">
+    <tr>
+        <td width="100%" bgcolor="#00384A" height="21"><font size="4" face="Century Gothic"><strong>Description</strong></font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="2" cellspacing="0" width="100%">
+    <tr>
+        <td><font face="Century Gothic">This service lets you
+        free any descriptors you've allocated. Note that freeing
+        a descriptor does NOT mean that the memory covered by
+        this descriptor is also freed</font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" height="23">
+    <tr>
+        <td width="100%" bgcolor="#00384A" height="21"><font size="4" face="Century Gothic"><strong>Input</strong></font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="2" cellspacing="0">
+    <tr>
+        <th width="59"><p align="right"><font face="Century Gothic">AL</font></p>
+        </th>
+        <td><font face="Century Gothic">15d(0Fh)</font></td>
+    </tr>
+    <tr>
+        <th width="59"><p align="right"><font face="Century Gothic">BX</font></p>
+        </th>
+        <td><font face="Century Gothic">Descriptor to destroy</font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" height="23">
+    <tr>
+        <td width="100%" bgcolor="#00384A" height="21"><font size="4" face="Century Gothic"><strong>Output</strong></font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="2" cellspacing="0">
+    <tr>
+        <th width="59"><p align="right"><font face="Century Gothic">None</font></p>
+        </th>
+        <td><font face="Century Gothic">None</font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" height="23">
+    <tr>
+        <td width="100%" bgcolor="#00384A" height="21"><font size="4" face="Century Gothic"><strong>Errorcodes</strong></font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="2" cellspacing="0">
+    <tr>
+        <th width="59"><p align="right"><font face="Century Gothic">None</font></p>
+        </th>
+        <td><font face="Century Gothic">None</font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" height="23">
+    <tr>
+        <td width="100%" bgcolor="#00384A" height="21"><font size="4" face="Century Gothic"><strong>Notes</strong></font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="2" cellspacing="0" width="100%">
+    <tr>
+        <td><font face="Century Gothic">System32 also takes care
+        of removing the entry of this descriptor from the GDT by
+        setting all it's value to 0's. You can see this by using
+        the 'gdt' command from the prompt.</font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" height="23">
+    <tr>
+        <td width="100%" bgcolor="#00384A" height="21"><font size="4" face="Century Gothic"><strong>Development Status</strong></font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="2" cellspacing="0" width="100%">
+    <tr>
+        <td><font face="Century Gothic">Working</font></td>
+    </tr>
+</table>
+
+<p align="center"><a href="../../../../V2_OS/new/developer/system32servicesdescription.htm"><font size="4" face="Century Gothic"><strong>Back</strong></font></a><br>
+</p>
+</body>
+</html>

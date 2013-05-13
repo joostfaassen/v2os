@@ -1,0 +1,78 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>SoruceCode</title>
+<base target="_self">
+<meta name="Microsoft Border" content="none">
+</head>
+
+<body bgcolor="#000000" text="#FFFFFF" link="#FFFFFF" vlink="#FFFFFF" alink="#FFFFFF"
+bgproperties="fixed">
+
+<p align="left"><font size="4" face="Verdana, Arial"><strong>Application Sourcecode #1<br>
+</strong></font><font size="2" face="Verdana, Arial">This small application will print the
+legendary words 'Hello World !!!' to the screen, wait for a keypress and returns to the
+Command-Prompt.<br>
+<br>
+</font></p>
+
+<p align="left"><font color="#93E7FF" size="1" face="Verdana, Arial">;---------------------------------------------------<br>
+;</font><font color="#93E7FF" size="2" face="Verdana, Arial"> Hello World !!! for V2_OS</font><font
+color="#93E7FF" size="1" face="Verdana, Arial"><br>
+</font><font color="#93E7FF" size="2" face="Verdana, Arial">; (c)1999 The V2_Lab</font><font
+color="#93E7FF" size="1" face="Verdana, Arial"><br>
+;---------------------------------------------------<br>
+</font><font color="#93E7FF" size="2" face="Verdana, Arial">.MODEL TINY </font><font
+color="#FFFFFF" size="2" face="Verdana, Arial">; Some compiler directives...</font><font
+color="#93E7FF" size="2" face="Verdana, Arial"><br>
+.386p<br>
+<br>
+code32 segment para public use32 </font><font color="#FFFFFF" size="2"
+face="Verdana, Arial">; Declare the 32 Bit Code/DataSegment</font><font color="#93E7FF"
+size="2" face="Verdana, Arial"><br>
+code32 ends</font></p>
+
+<p><font color="#93E7FF" size="2" face="Verdana, Arial">code32 segment para public use32 </font><font
+color="#FFFFFF" size="2" face="Verdana, Arial">; Start the 32 Bit Code/DataSegment</font><font
+color="#93E7FF" size="2" face="Verdana, Arial"><br>
+assume cs:code32, ds:code32 <br>
+<br>
+ORG 100H </font><font color="#FFFFFF" size="2" face="Verdana, Arial">; Reserve 100h Bytes </font></p>
+
+<p><font color="#93E7FF" size="2" face="Verdana, Arial">HelloWorld: </font><font
+color="#FFFFFF" size="2" face="Verdana, Arial">; Program Starts here</font><font
+color="#93E7FF" size="2" face="Verdana, Arial"><br>
+jmp Start</font><font color="#FFFFFF" size="2" face="Verdana, Arial"> ; Skip the variable
+declaration part</font><font color="#93E7FF" size="2" face="Verdana, Arial"><br>
+</font><font color="#FFFFFF" size="2" face="Verdana, Arial">; Declare your variables
+here...</font><font color="#93E7FF" size="2" face="Verdana, Arial"><br>
+Message DB 'Hello World !!!',13 ,10 ,0<br>
+</font><font color="#FFFFFF" size="2" face="Verdana, Arial">; On with the code:</font><font
+color="#93E7FF" size="2" face="Verdana, Arial"><br>
+Start:<br>
+</font><font color="#FFFFFF" size="2" face="Verdana, Arial">; Prepare the 'Print' Request</font><font
+color="#93E7FF" size="2" face="Verdana, Arial"><br>
+Mov AL, 4H</font><font color="#FFFFFF" size="2" face="Verdana, Arial"> ; System32 Service
+Number 4 (Print Text)</font><font color="#93E7FF" size="2" face="Verdana, Arial"><br>
+Mov EDI, Offset Message</font><font color="#FFFFFF" size="2" face="Verdana, Arial"> ;
+Point DS:EDI to the text</font><font color="#93E7FF" size="2" face="Verdana, Arial"><br>
+Int 20h</font><font color="#FFFFFF" size="2" face="Verdana, Arial"> ; Execute System32
+Service </font></p>
+
+<p><font color="#93E7FF" size="2" face="Verdana, Arial"><br>
+Mov AL, 23</font><font color="#FFFFFF" size="2" face="Verdana, Arial"> ; System32 Service
+Number 32 (Wait for a key)</font><font color="#93E7FF" size="2" face="Verdana, Arial"><br>
+Int 20H </font><font color="#FFFFFF" size="2" face="Verdana, Arial">; Execute System32
+Service</font></p>
+
+<p><font color="#93E7FF" size="2" face="Verdana, Arial">RETF</font><font color="#FFFFFF"
+size="2" face="Verdana, Arial"> ; Return to System32</font></p>
+
+<p><font color="#93E7FF" size="2" face="Verdana, Arial">code32 ends </font><font
+color="#FFFFFF" size="2" face="Verdana, Arial">; End the 32Bit Code/DataSegment</font></p>
+
+<p><font color="#93E7FF" size="2" face="Verdana, Arial">END HelloWorld </font><font
+color="#FFFFFF" size="2" face="Verdana, Arial">; End the Sourcecode</font></p>
+</body>
+</html>

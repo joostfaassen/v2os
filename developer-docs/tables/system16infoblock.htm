@@ -1,0 +1,304 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>System16 Info Block</title>
+<base target="_self">
+<meta name="Microsoft Border" content="none">
+</head>
+
+<body bgcolor="#000000" text="#FFFFFF" link="#FFFFFF" vlink="#FFFFFF" alink="#FFFFFF"
+bgproperties="fixed">
+
+<p><font size="4" face="Verdana, Arial"><strong>System16 Info Block<br>
+</strong></font><font size="2" face="Verdana, Arial">This is the System16 Info Block. It's
+content is mostly filled in by System16 at bootup. The values here are for system use, but
+can be usefull for some appliciations aswell... This table is located IN the code-segment
+of System16. System16 will always be loaded at 500h. It starts with 100h zeros. So to get
+for example the physical address of the KeyboardArea, this assemblercode could retrieve
+it:<br>
+mov eax, gs:[600h+74]<br>
+Provided that GS is loaded with the descriptor that covers memory 00000000 to 4Gig(As it
+always should under V2_OS).<br>
+Offsets are given in decimal values here:</font></p>
+<div align="left">
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td valign="top" width="20" bgcolor="#006400"><font size="2" face="Verdana, Arial">Ofs</font></td>
+    <td valign="top" width="20" bgcolor="#006400"><font size="2" face="Verdana, Arial">Size</font></td>
+    <td valign="top" width="80%" bgcolor="#006400"><font size="2" face="Verdana, Arial">Description</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">4</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">1</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">System16Sectors</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"></td>
+    <td valign="top" width="20"></td>
+    <td valign="top" width="80%"><font color="#C4C4C4" size="2" face="Verdana, Arial">This
+    value is used by Boot.com to find out how many sectors to load into memory before passing
+    control to System16. Multiply this value by 512 to get the size of System16 in bytes.</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">5</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">1</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">System32Sectors</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"></td>
+    <td valign="top" width="20"></td>
+    <td valign="top" width="80%"><font color="#C4C4C4" size="2" face="Verdana, Arial">This
+    value is used by System16 to find out how many sectors to load into memory before passing
+    control to System32. Multiply this value by 512 to get the size of System32 in bytes.</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">6</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">4</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">System16 Addr</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"></td>
+    <td valign="top" width="20"></td>
+    <td valign="top" width="80%"><font color="#C4C4C4" size="2" face="Verdana, Arial">This
+    value is the physical Base address of System16's code Descriptor. This value is currenly
+    fixed to 500h<br>
+    Note that System16's code starts with 100h bytes of zero's.</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">10</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">4</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">System32 Addr</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"></td>
+    <td valign="top" width="20"></td>
+    <td valign="top" width="80%"><font color="#C4C4C4" size="2" face="Verdana, Arial">This
+    value is the physical Base address of System32's code Descriptor. It starts right after
+    System16's code. Note that System32 also starts with 100h bytes of zero's.</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">14</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">2</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">The RealMode Portal
+    Segment</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">16</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">2</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">The RealMode Portal
+    Offset</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">18</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">2</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">The IDT Length (in
+    Bytes)</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">20</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">4</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">The IDT physical base
+    address</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">24</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">2</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">The GDT Length (in
+    Bytes)</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">26</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">4</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">The GDT physical base
+    address</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">30</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">4</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">The physical base
+    address of the 'Shared Stack-Space'</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">34</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">4</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">Size in bytes of the
+    'Shared Stack-Space'</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">38</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">2</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">System16Function Offset</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">40</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">4</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">System16Function's
+    Return Address</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">44</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">4</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">Real_EAX</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">48</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">4</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">Real_EBX</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">52</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">4</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">Real_ECX</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">56</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">4</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">Real_EDX</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">60</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">4</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">Real_ESI</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">64</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">4</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">Real_EDI</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">68</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">2</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">Real_DS</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">70</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">2</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">Real_ES</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">72</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">2</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">Real_FS</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">74</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">4</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">The physical base
+    address of the 'Keyboard Area' <a href="keyboardarea.htm">More...</a></font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">78</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">2</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">Bootup GDT</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">80</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">2</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">GDT_Entries</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">82</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">2</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">Diskbuffer Segment</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">84</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">4</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">Diskbuffer Size in bytes</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">88</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">2</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">Number of Fixed Disks</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">90</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">2</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">Offset to the
+    DiskInfoBlock (Relative to System16's Base Address) <a href="diskinfoblock.htm">More...</a></font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">92</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">2</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">Reserved</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">94</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">1</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">(BIOS)Drive number of
+    the disk that V2_OS Booted from</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">95</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">4</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">Address of the CMOS
+    data-image(Copied from NVRam by System16 at bootup)</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">99</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">1</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">Reserved</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">100</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">4</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">Found_Cylinder</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">104</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">4</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">Found_Head</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">108</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">4</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">Found_Sector</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">112</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">2</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">Offset to the
+    PartitionList(Relative to System16's Base Address) <a href="partlist.htm">More...</a></font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">114</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">2</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">Number of floppydrives
+    present in the system</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">116</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">4</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">ModList Address <a
+    href="modulelist.htm">More...</a></font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">120</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">4</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">ModList Size in bytes</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">124</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">4</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">ServerList Address <a
+    href="serverlist.htm">More...</a></font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">128</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">4</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">ServerList Size in Bytes
+    </font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">128</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">...</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">Reserved</font></td>
+  </tr>
+</table>
+</div>
+
+<p align="center">&nbsp;</p>
+</body>
+</html>

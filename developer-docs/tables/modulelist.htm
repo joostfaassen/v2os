@@ -1,0 +1,87 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>The PartList</title>
+<base target="_self">
+<meta name="Microsoft Border" content="none">
+</head>
+
+<body bgcolor="#000000" text="#FFFFFF" link="#FFFFFF" vlink="#FFFFFF" alink="#FFFFFF"
+bgproperties="fixed">
+
+<p><font size="4" face="Verdana, Arial"><strong>The ModuleList<br>
+</strong></font><font size="2" face="Verdana, Arial">In the System16 Info Block, there is
+the entry 'ModList Address' at offset 116, that points to this block. It's a chained
+structure with information on all modules that are currently loaded into memory and have
+been successfully initialized. Each entry is 128bytes long. </font></p>
+<div align="left">
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td valign="top" width="20" bgcolor="#006400"><font size="2" face="Verdana, Arial">Ofs</font></td>
+    <td valign="top" width="20" bgcolor="#006400"><font size="2" face="Verdana, Arial">Size</font></td>
+    <td valign="top" width="80%" bgcolor="#006400"><font size="2" face="Verdana, Arial">Description</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">0</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">8</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">ModID</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">8</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">2</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">Primary CodeDescriptor</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">10</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">2</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">Primary DataDescriptor</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">12</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">4</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">Absolute address in
+    memory</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">16</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">4</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">Size of this module in
+    bytes</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">20</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">4</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">Offset to the 'Mod_Load'
+    Code</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">24</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">4</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">Offset to the
+    'Mod_UNLoad' Code</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">28</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">4</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">Offset to the 'Service
+    Table'</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">32</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">32</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">ModuleName</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">64</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">...</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">Reserved</font></td>
+  </tr>
+</table>
+</div>
+
+<p><font size="2" face="Verdana, Arial">This table can be displayed by using the 'modlist'
+command from the command-prompt.</font></p>
+</body>
+</html>

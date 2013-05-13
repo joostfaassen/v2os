@@ -1,0 +1,133 @@
+<html>
+
+<head>
+
+
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>System32 Services</title>
+<base target="_self">
+<meta name="Microsoft Border" content="none"></head>
+
+<body bgcolor="#000000" text="#FFFFFF" link="#FFFFFF" vlink="#FFFFFF" alink="#FFFFFF" bgproperties="fixed">
+
+<p><font size="4" face="Century Gothic"><strong>System32 Function
+14 (0Eh) - Request Memory Block + Selector</strong></font></p>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" height="23">
+    <tr>
+        <td width="100%" bgcolor="#00384A" height="21"><font size="4" face="Century Gothic"><strong>Description</strong></font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="2" cellspacing="0" width="100%">
+    <tr>
+        <td><font face="Century Gothic">This function lets an
+        application/mod/server request a block of memory. The
+        settings like code/data, 16Bit/32Bit Granularity, Base
+        etc. is all handled by System32. The caller gets two
+        values back to access the memory in 2 different ways, by
+        Linear Addressing or by descriptor access.</font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" height="23">
+    <tr>
+        <td width="100%" bgcolor="#00384A" height="21"><font size="4" face="Century Gothic"><strong>Input</strong></font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="2" cellspacing="0">
+    <tr>
+        <th width="59"><p align="right"><font face="Century Gothic">AL</font></p>
+        </th>
+        <td><font face="Century Gothic">14D (0Eh)</font></td>
+    </tr>
+    <tr>
+        <th width="59"><p align="right"><font face="Century Gothic">EBX</font></p>
+        </th>
+        <td><font face="Century Gothic">Bytes to allocate</font></td>
+    </tr>
+    <tr>
+        <th width="59"><p align="right"><font face="Century Gothic">DL</font></p>
+        </th>
+        <td><font face="Century Gothic">0 for Data, 1 for a Code
+        Descriptor</font></td>
+    </tr>
+    <tr>
+        <th width="59"><p align="right"><font face="Century Gothic">DH</font></p>
+        </th>
+        <td><font face="Century Gothic">0 for 16Bit, 1 for 32Bit
+        (This is only relevant for DataMemoryBlocks</font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" height="23">
+    <tr>
+        <td width="100%" bgcolor="#00384A" height="21"><font size="4" face="Century Gothic"><strong>Output</strong></font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="2" cellspacing="0">
+    <tr>
+        <th width="59"><p align="right"><font face="Century Gothic">EDI</font></p>
+        </th>
+        <td><font face="Century Gothic">Linear Address of the
+        requested memory block</font></td>
+    </tr>
+    <tr>
+        <th width="59"><p align="right"><font face="Century Gothic">CX</font></p>
+        </th>
+        <td><font face="Century Gothic">The Descriptor to access
+        this same block</font></td>
+    </tr>
+    <tr>
+        <th width="59"><p align="right"><font face="Century Gothic">EBX</font></p>
+        </th>
+        <td><font face="Century Gothic">Bytes that were actually
+        allocated. It will never be less than the requested
+        amount, sometimes it's a bit more for allignment reasons</font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" height="23">
+    <tr>
+        <td width="100%" bgcolor="#00384A" height="21"><font size="4" face="Century Gothic"><strong>Errorcodes</strong></font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="2" cellspacing="0">
+    <tr>
+        <th width="59"><p align="right"><font face="Century Gothic">None</font></p>
+        </th>
+        <td><font face="Century Gothic">None</font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" height="23">
+    <tr>
+        <td width="100%" bgcolor="#00384A" height="21"><font size="4" face="Century Gothic"><strong>Notes</strong></font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="2" cellspacing="0" width="100%">
+    <tr>
+        <td><font face="Century Gothic">None</font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" height="23">
+    <tr>
+        <td width="100%" bgcolor="#00384A" height="21"><font size="4" face="Century Gothic"><strong>Development Status</strong></font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="2" cellspacing="0" width="100%">
+    <tr>
+        <td><font face="Century Gothic">Working</font></td>
+    </tr>
+</table>
+
+<p align="center"><a href="../../../../V2_OS/new/developer/system32servicesdescription.htm"><font size="4" face="Century Gothic"><strong>Back</strong></font></a><br>
+</p>
+</body>
+</html>

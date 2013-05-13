@@ -1,0 +1,112 @@
+<html>
+
+<head>
+
+
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>System32 Services</title>
+<base target="_self">
+<meta name="Microsoft Border" content="none"></head>
+
+<body bgcolor="#000000" text="#FFFFFF" link="#FFFFFF" vlink="#FFFFFF" alink="#FFFFFF" bgproperties="fixed">
+
+<p><font size="4" face="Century Gothic"><strong>System32 Function
+22 (16h) - RM Interrupt (Without RegCopy)</strong></font></p>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" height="23">
+    <tr>
+        <td width="100%" bgcolor="#00384A" height="21"><font size="4" face="Century Gothic"><strong>Description</strong></font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="2" cellspacing="0" width="100%">
+    <tr>
+        <td><font face="Century Gothic">The previous explained
+        Service03 only works from within System32's code. For
+        other applications/modules/servers to jump through the
+        realmode-portal, this service must be used.This Service
+        also does NOT copy the registers(eax, ebx, ecx, edx, esi,
+        etc...) to the REAL_XX registers and the app is
+        responsible for doing this.</font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" height="23">
+    <tr>
+        <td width="100%" bgcolor="#00384A" height="21"><font size="4" face="Century Gothic"><strong>Input</strong></font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="2" cellspacing="0">
+    <tr>
+        <th width="59"><p align="right"><font face="Century Gothic">AL</font></p>
+        </th>
+        <td><font face="Century Gothic">22d (16h)</font></td>
+    </tr>
+    <tr>
+        <th width="59"><p align="right"><font face="Century Gothic">AH</font></p>
+        </th>
+        <td><font face="Century Gothic">Interrupt number to fire
+        from within realmode.</font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" height="23">
+    <tr>
+        <td width="100%" bgcolor="#00384A" height="21"><font size="4" face="Century Gothic"><strong>Output</strong></font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="2" cellspacing="0">
+    <tr>
+        <th width="59"><p align="right"><font face="Century Gothic">None</font></p>
+        </th>
+        <td><font face="Century Gothic">None</font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" height="23">
+    <tr>
+        <td width="100%" bgcolor="#00384A" height="21"><font size="4" face="Century Gothic"><strong>Errorcodes</strong></font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="2" cellspacing="0">
+    <tr>
+        <th width="59"><p align="right"><font face="Century Gothic">None</font></p>
+        </th>
+        <td><font face="Century Gothic">None</font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" height="23">
+    <tr>
+        <td width="100%" bgcolor="#00384A" height="21"><font size="4" face="Century Gothic"><strong>Notes</strong></font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="2" cellspacing="0" width="100%">
+    <tr>
+        <td><font face="Century Gothic">For a bit more detailed
+        description on the use of the RealMode Portal, click here<br>
+        For a description on the use of the REAL_XX registers,
+        click here</font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" height="23">
+    <tr>
+        <td width="100%" bgcolor="#00384A" height="21"><font size="4" face="Century Gothic"><strong>Development Status</strong></font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="2" cellspacing="0" width="100%">
+    <tr>
+        <td><font face="Century Gothic">Working. (Needs testing)</font></td>
+    </tr>
+</table>
+
+<p align="center"><a href="../../../../V2_OS/new/developer/system32servicesdescription.htm"><font size="4" face="Century Gothic"><strong>Back</strong></font></a><br>
+</p>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<meta name="Microsoft Border" content="none">
+<base target="_self">
+<title>Introduction</title>
+</head>
+
+<body bgcolor="#000000" bgproperties="fixed" text="#FFFFFF" link="#00FF00" vlink="#00FF00"
+alink="#FFFFFF">
+
+<p><big><big><strong><font face="Verdana, Arial">Introduction to V2_FS</font></strong></big></big></p>
+
+<p><font face="Verdana, Arial"><small>The V2_FS is the native FileSystem of V2_OS. It is
+designed and optimized especially for fast hard diskaccess, which is very usefull for, for
+example, a digital audio/videoplayer/mixer. It does not, as most other filesystems, have
+facilities like file-attributes for r/w access, dynamic directory structures,
+file-protection against unauthorized users, etc. Instead, it has the following features
+that make sure that videodata is accessed at it's highest possible speed:</small><br>
+<small>-No defragmentation.</small><br>
+<small>-Videoframes are stored sector-aligned, for faster loading to
+disk/decompression-buffers</small><br>
+<small>-All data is stored sequentially, this eliminates the need for the physical
+disk-heads to jump and search around.</small><br>
+<small>-Special structures are included to give fast access to frames in random order, not
+just sequentially.</small><br>
+<small>-Almost NO slack !</small><br>
+<br>
+<small>Tools to work with V2_FS from dos/windows are already available in the 'Download
+Corner'. Tools for Linux are still under construction.</small></font></p>
+
+<p><small><font face="Verdana, Arial">The V2_OS's 'native' filesystem is V2_FS, so it does
+not require any tools.</font></small></p>
+
+<table border="0" width="100%" height="75">
+  <tr>
+    <td bgColor="#006400" vAlign="top" width="895" height="18"><font face="Verdana, Arial"><small>Technical
+    information on the V2_FS format:</small></font></td>
+  </tr>
+  <tr>
+    <td bgColor="#282828" vAlign="top" width="139" height="19"><font face="Verdana, Arial"
+    color="#FFFFFF"><small>The Bootsector <a href="bootsector.htm">View</a></small></font></td>
+  </tr>
+  <tr>
+    <td bgColor="#141414" vAlign="top" width="139" height="19"><font face="Verdana, Arial"
+    color="#FFFFFF"><small>The Filelist <a href="filelist.htm">View</a></small></font></td>
+  </tr>
+  <tr>
+    <td bgColor="#282828" vAlign="top" width="139" height="1"><font face="Verdana, Arial"
+    color="#FFFFFF"><small>The MBR <a href="mbr.htm">View</a></small></font></td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<base target="_self">
+<title>System32 Services</title>
+<meta name="Microsoft Border" content="none">
+</head>
+
+<body bgcolor="#000000" bgproperties="fixed" text="#FFFFFF" link="#FFFFFF" vlink="#FFFFFF"
+alink="#FFFFFF">
+
+<p><font face="Century Gothic"><big><big><strong>System32 Function 40 (28h) - Read text</strong></big></big></font></p>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0" height="23">
+  <tr>
+    <td width="100%" bgcolor="#00384A" height="21"><font face="Century Gothic"><big><strong>Description</strong></big></font></td>
+  </tr>
+</table>
+
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+  <tr>
+    <td><font face="Century Gothic">This function can read a line of text from the standard
+    input (for example the keyboard). It is the same function the command prompt uses to get
+    input from the user, so backspace etc is supported, and the text appears in yellow.</font></td>
+  </tr>
+</table>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0" height="23">
+  <tr>
+    <td width="100%" bgcolor="#00384A" height="21"><font face="Century Gothic"><big><strong>Input</strong></big></font></td>
+  </tr>
+</table>
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <th width="59"><p align="right"><font face="Century Gothic">AL</font></th>
+    <td><font face="Century Gothic">04h</font></td>
+  </tr>
+  <tr>
+    <th width="59"><p align="right"><font face="Century Gothic">DS</font></th>
+    <td><font face="Century Gothic">Selector of a text buffer</font></td>
+  </tr>
+  <tr>
+    <th width="59"><p align="right"><font face="Century Gothic">EDI</font></th>
+    <td><font face="Century Gothic">Offset to a text buffer</font></td>
+  </tr>
+</table>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0" height="23">
+  <tr>
+    <td width="100%" bgcolor="#00384A" height="21"><font face="Century Gothic"><big><strong>Output</strong></big></font></td>
+  </tr>
+</table>
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <th width="59"><p align="right"><font face="Century Gothic">None</font></th>
+    <td><font face="Century Gothic">Always successfull</font></td>
+  </tr>
+</table>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0" height="23">
+  <tr>
+    <td width="100%" bgcolor="#00384A" height="21"><font face="Century Gothic"><big><strong>Errorcodes</strong></big></font></td>
+  </tr>
+</table>
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <th width="59"><p align="right"><font face="Century Gothic">None</font></th>
+    <td><font face="Century Gothic">Always successfull</font></td>
+  </tr>
+</table>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0" height="23">
+  <tr>
+    <td width="100%" bgcolor="#00384A" height="21"><font face="Century Gothic"><big><strong>Notes</strong></big></font></td>
+  </tr>
+</table>
+
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+  <tr>
+    <td><font face="Century Gothic">*The buffer has to be long enough, no range checking is
+    currently performed...</font></td>
+  </tr>
+</table>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0" height="23">
+  <tr>
+    <td width="100%" bgcolor="#00384A" height="21"><font face="Century Gothic"><big><strong>Development
+    Status</strong></big></font></td>
+  </tr>
+</table>
+
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+  <tr>
+    <td><font face="Century Gothic">We might add a parameter telling the maximum amount of
+    characters to recieve...</font></td>
+  </tr>
+</table>
+
+<p align="center"><a
+href="../../../../V2_OS/new/developer/system32servicesdescription.htm"><big><big><strong><font
+face="Century Gothic">Back</font></strong></big></big></a><br>
+</p>
+</body>
+</html>

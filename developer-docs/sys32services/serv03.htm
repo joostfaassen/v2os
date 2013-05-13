@@ -1,0 +1,109 @@
+<html>
+
+<head>
+
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+
+<base target="_self">
+<title>System32 Services</title>
+<meta name="Microsoft Border" content="none"></head>
+
+<body bgcolor="#000000" bgproperties="fixed" text="#FFFFFF" link="#FFFFFF" vlink="#FFFFFF" alink="#FFFFFF">
+
+<p><big><big><font face="Century Gothic"><strong>System32 Function 03 (03h) - Execute a
+RealMode Interrupt</strong></font></big></big></p>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0" height="23">
+  <tr>
+    <td width="100%" bgcolor="#00384A" height="21"><font face="Century Gothic"><big><strong>Description</strong></big></font></td>
+  </tr>
+</table>
+
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+  <tr>
+    <td><font face="Century Gothic">This service makes it possible to execute RealMode
+    interrupts. This could be usefull for accessing the Bios, or PCI or EISA ROM code. When
+    this service is called, the system switches to RealMode (not V86 mode), and loads the
+    registers from the 'REAL_X' structure. This is a special structure that is located in the
+    System16 area.<br>
+    After that, the interrupt specified in AH is executed.<br>
+    The system returns to ProtectedMode and gives control back to the caller.</font></td>
+  </tr>
+</table>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0" height="23">
+  <tr>
+    <td width="100%" bgcolor="#00384A" height="21"><font face="Century Gothic"><big><strong>Input</strong></big></font></td>
+  </tr>
+</table>
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <th width="59"><p align="right"><font face="Century Gothic">AL</font></th>
+    <td><font face="Century Gothic">03h</font></td>
+  </tr>
+  <tr>
+    <th width="59"><p align="right"><font face="Century Gothic">AH</font></th>
+    <td><font face="Century Gothic">Realmode Interrupt to fire</font></td>
+  </tr>
+</table>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0" height="23">
+  <tr>
+    <td width="100%" bgcolor="#00384A" height="21"><font face="Century Gothic"><big><strong>Output</strong></big></font></td>
+  </tr>
+</table>
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <th width="59"><p align="right"><font face="Century Gothic">None</font></th>
+    <td></td>
+  </tr>
+</table>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0" height="23">
+  <tr>
+    <td width="100%" bgcolor="#00384A" height="21"><font face="Century Gothic"><big><strong>Errorcodes</strong></big></font></td>
+  </tr>
+</table>
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <th width="59"><p align="right"><font face="Century Gothic">None</font></th>
+    <td><font face="Century Gothic">Always successfull</font></td>
+  </tr>
+</table>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0" height="21">
+  <tr>
+    <td width="100%" bgcolor="#00384A" height="19"><font face="Century Gothic"><big><strong>Notes</strong></big></font></td>
+  </tr>
+</table>
+
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+  <tr>
+    <td><font face="Century Gothic">Interrupt are executed in actual RealMode, not in the
+    'Virtual86' mode (v86) because RealMode is much faster, and the switch between
+    ProtectedMode to RealMode is also much faster.</font></td>
+  </tr>
+</table>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0" height="23">
+  <tr>
+    <td width="100%" bgcolor="#00384A" height="21"><font face="Century Gothic"><big><strong>Development
+    Status</strong></big></font></td>
+  </tr>
+</table>
+
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+  <tr>
+    <td><font face="Century Gothic">*Maybe after the interrupt was fire in realmode, the
+    registers could be stored in the 'REAL_X' structure<br>
+    *Maybe the CF could be copied to protected mode.</font></td>
+  </tr>
+</table>
+
+<p align="center"><a href="../../../../V2_OS/new/developer/system32servicesdescription.htm"><big><big><strong><font face="Century Gothic">Back</font></strong></big></big></a><br>
+</p>
+</body>
+</html>

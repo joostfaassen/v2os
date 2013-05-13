@@ -1,0 +1,139 @@
+<html>
+
+<head>
+
+
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>System32 Services</title>
+<base target="_self">
+<meta name="Microsoft Border" content="none"></head>
+
+<body bgcolor="#000000" text="#FFFFFF" link="#FFFFFF" vlink="#FFFFFF" alink="#FFFFFF" bgproperties="fixed">
+
+<p><font size="4" face="Century Gothic"><strong>System32 Function
+34 (22h) - Get I/O Resources used by a PCI Card</strong></font></p>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" height="23">
+    <tr>
+        <td width="100%" bgcolor="#00384A" height="21"><font size="4" face="Century Gothic"><strong>Description</strong></font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="2" cellspacing="0" width="100%">
+    <tr>
+        <td><font face="Century Gothic">This service can return
+        the I/O resources used by a specific PCI Card !</font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" height="23">
+    <tr>
+        <td width="100%" bgcolor="#00384A" height="21"><font size="4" face="Century Gothic"><strong>Input</strong></font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="2" cellspacing="0">
+    <tr>
+        <th width="59"><p align="right"><font face="Century Gothic">AL</font></p>
+        </th>
+        <td><font face="Century Gothic">34d(22h)</font></td>
+    </tr>
+    <tr>
+        <th width="59"><p align="right"><font face="Century Gothic">BH</font></p>
+        </th>
+        <td><font face="Century Gothic">PCI Class</font></td>
+    </tr>
+    <tr>
+        <th width="59"><p align="right"><font face="Century Gothic">BL</font></p>
+        </th>
+        <td><font face="Century Gothic">PCI Sub Class</font></td>
+    </tr>
+    <tr>
+        <th width="59"><p align="right"><font face="Century Gothic">CL</font></p>
+        </th>
+        <td><font face="Century Gothic">Index in DeviceList</font></td>
+    </tr>
+    <tr>
+        <th width="59"><p align="right"><font face="Century Gothic">CH</font></p>
+        </th>
+        <td><font face="Century Gothic">Index in I/O ResourceList</font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" height="23">
+    <tr>
+        <td width="100%" bgcolor="#00384A" height="21"><font size="4" face="Century Gothic"><strong>Output</strong></font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="2" cellspacing="0">
+    <tr>
+        <th width="59"><p align="right"><font face="Century Gothic">AL</font></p>
+        </th>
+        <td><font face="Century Gothic">0 if Ok, &gt; 0 if Error
+        (Device not found)</font></td>
+    </tr>
+    <tr>
+        <th width="59"><p align="right"><font face="Century Gothic">EBX</font></p>
+        </th>
+        <td><font face="Century Gothic">Port Base Address</font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" height="23">
+    <tr>
+        <td width="100%" bgcolor="#00384A" height="21"><font size="4" face="Century Gothic"><strong>Errorcodes</strong></font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="2" cellspacing="0">
+    <tr>
+        <th width="59"><p align="right"><font face="Century Gothic">None</font></p>
+        </th>
+        <td><font face="Century Gothic">None</font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" height="23">
+    <tr>
+        <td width="100%" bgcolor="#00384A" height="21"><font size="4" face="Century Gothic"><strong>Notes</strong></font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="2" cellspacing="0" width="100%">
+    <tr>
+        <td><font face="Century Gothic">The value in CL, 'Index
+        in DeviceList' can be used to support multiple cards of
+        the same type, for example when System32 Service 32
+        reports that there are 2 Ethernet Cards installed, then
+        CL can indicate which card to get the information from...
+        (0 for Nic 1, 1 for Nic 2, etc...)<br>
+        <br>
+        The value in CH, 'Index in I/O ResourceList' is used when
+        multiple I/O resources are used. (0 for I/O Resource 1, 1
+        for I/O Resource 2, etc...)<br>
+        <br>
+        To get a list resources used by PCI Devices that are
+        installed, use the 'pciinfo' command with a pci(Sub)Class
+        as a parameter from the command prompt... (Example
+        'pciinfo 0200' lists all ethernetcards, and their
+        resources!)</font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" height="23">
+    <tr>
+        <td width="100%" bgcolor="#00384A" height="21"><font size="4" face="Century Gothic"><strong>Development Status</strong></font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="2" cellspacing="0" width="100%">
+    <tr>
+        <td><font face="Century Gothic">Complete</font></td>
+    </tr>
+</table>
+
+<p align="center"><a href="../../../../V2_OS/new/developer/system32servicesdescription.htm"><font size="4" face="Century Gothic"><strong>Back</strong></font></a><br>
+</p>
+</body>
+</html>

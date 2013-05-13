@@ -1,0 +1,107 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<base target="_self">
+<title>Tasm</title>
+<meta name="Microsoft Border" content="none">
+</head>
+
+<body bgcolor="#000000" text="#FFFFFF" link="#FFFFFF" vlink="#FFFFFF" alink="#FFFFFF"
+bgproperties="fixed">
+
+<p align="left"><font face="Verdana, Arial"><font size="3"><strong>Writing a 'Hello
+World!' program<br>
+</strong></font><font size="2">With Borland Turbo Assembler</font><font size="3"><strong><br>
+</strong></font><font size="1"><br>
+</font><font size="2"><strong>Step1:</strong><br>
+Copy this sourcecode into a file called 'hello.asm' with your favorite text-editor:<br>
+<br>
+</font></font><font color="#00FF00"><font face="Verdana, Arial" size="1">;---------------------------------------------------<br>
+;</font><font size="2" face="Verdana, Arial"> Hello World !!! for V2_OS</font><font
+face="Verdana, Arial" size="1"><br>
+</font><font size="2" face="Verdana, Arial">; (c)1999 The V2_Lab</font><font
+face="Verdana, Arial" size="1"><br>
+;---------------------------------------------------</font></font><font color="#00ff00"
+face="Verdana, Arial" size="1"><br>
+</font><font face="Verdana, Arial" color="#00ff00" size="2">.MODEL TINY </font><font
+face="Verdana, Arial" color="#FFFFFF" size="2">; Some compiler directives...</font><font
+face="Verdana, Arial" color="#00ff00" size="2"><br>
+.386p<br>
+<br>
+code32 segment para public use32 </font><font face="Verdana, Arial" color="#FFFFFF"
+size="2">; Declare the 32 Bit Code/DataSegment</font><font face="Verdana, Arial"
+color="#00ff00" size="2"><br>
+code32 ends</font></p>
+
+<p><font face="Verdana, Arial" color="#00ff00" size="2">code32 segment para public use32 </font><font
+face="Verdana, Arial" color="#FFFFFF" size="2">; Start the 32 Bit Code/DataSegment</font><font
+face="Verdana, Arial" color="#00ff00" size="2"><br>
+assume cs:code32, ds:code32 <br>
+<br>
+ORG 100H </font><font face="Verdana, Arial" color="#FFFFFF" size="2">; Reserve 100h Bytes </font></p>
+
+<p><font face="Verdana, Arial" color="#00ff00" size="2">HelloWorld: </font><font
+face="Verdana, Arial" color="#FFFFFF" size="2">; Program Starts here</font><font
+face="Verdana, Arial" color="#00ff00" size="2"><br>
+jmp Start</font><font face="Verdana, Arial" color="#FFFFFF" size="2"> ; Skip the variable
+declaration part</font><font face="Verdana, Arial" color="#00ff00" size="2"><br>
+</font><font face="Verdana, Arial" color="#FFFFFF" size="2">; Declare your variables
+here...</font><font face="Verdana, Arial" color="#00ff00" size="2"><br>
+Message DB 'Hello World !!!',13 ,10 ,0<br>
+</font><font face="Verdana, Arial" color="#FFFFFF" size="2">; On with the code:</font><font
+face="Verdana, Arial" color="#00ff00" size="2"><br>
+Start:<br>
+</font><font face="Verdana, Arial" color="#FFFFFF" size="2">; Prepare the 'Print' Request</font><font
+face="Verdana, Arial" color="#00ff00" size="2"><br>
+Mov AL, 4H</font><font face="Verdana, Arial" color="#FFFFFF" size="2"> ; System32 Service
+Number 4 (Print Text)</font><font face="Verdana, Arial" color="#00ff00" size="2"><br>
+Mov EDI, Offset Message</font><font face="Verdana, Arial" color="#FFFFFF" size="2"> ;
+Point DS:EDI to the text</font><font face="Verdana, Arial" color="#00ff00" size="2"><br>
+Int 20h</font><font face="Verdana, Arial" color="#FFFFFF" size="2"> ; Execute System32
+Service </font></p>
+
+<p><font face="Verdana, Arial" color="#00ff00" size="2"><br>
+Mov AL, 23</font><font face="Verdana, Arial" color="#FFFFFF" size="2"> ; System32 Service
+Number 32 (Wait for a key)</font><font face="Verdana, Arial" color="#00ff00" size="2"><br>
+Int 20H </font><font face="Verdana, Arial" color="#FFFFFF" size="2">; Execute System32
+Service</font></p>
+
+<p><font face="Verdana, Arial" color="#00ff00" size="2">RETF</font><font
+face="Verdana, Arial" color="#FFFFFF" size="2"> ; Return to System32</font></p>
+
+<p><font face="Verdana, Arial" color="#00ff00" size="2">code32 ends </font><font
+face="Verdana, Arial" color="#FFFFFF" size="2">; End the 32Bit Code/DataSegment</font></p>
+
+<p><font face="Verdana, Arial" color="#00ff00" size="2">END HelloWorld </font><font
+face="Verdana, Arial" color="#FFFFFF" size="2">; End the Sourcecode</font></p>
+
+<p><font size="2" face="Verdana, Arial"><strong>Step2:</strong><br>
+To compile this, make sure your in the path where you have stored 'hello.asm'.<br>
+Also, make sure your 'Environment Variables' point to the Tasm/bin directory. To verify
+this, type 'path'. Your Tasm/Bin directory should be listed here. If it is not, please
+check your Tasm Readme files to set this path.<br>
+If all this is verified, enter the following commands to compile and link 'hello.asm'<br>
+<br>
+</font><font face="Verdana, Arial" color="#00ff00" size="2">tasm hello<br>
+tlink hello /3 /x</font><font size="2" face="Verdana, Arial"><br>
+<br>
+<strong>Step3:</strong><br>
+This should give you the 'hello.com' file. (if not, check the error messages from the
+compiler and linker)<br>
+Insert a V2_OS formatted floppy in drive A:<br>
+Use the following command to copy your application to the V2_OS Floppy:<br>
+<font color="#00FF00">v2copy hello.com hello.app</font><br>
+<br>
+<strong>Step4:</strong><br>
+Boot a PC into the V2_OS, and insert your floppy<br>
+Now you can type:<br>
+</font><font face="Verdana, Arial" color="#00ff00" size="2">run hello.app</font></p>
+
+<p align="center"><small><strong><small><small><font face="Verdana, Arial">...............................................................................................................</font></small></small></strong></small></p>
+
+<p align="left"><small><font face="Verdana, Arial"><strong>Problems ?<br>
+</strong>If your having problems with compiling and running hello.app, feel free to
+contact us !</font></small></p>
+</body>
+</html>

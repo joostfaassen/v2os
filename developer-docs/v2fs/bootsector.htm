@@ -1,0 +1,179 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<meta name="Microsoft Border" content="none">
+<base target="bottom">
+<title>BootSector</title>
+</head>
+
+<body bgcolor="#000000" text="#FFFFFF" link="#00FF00" vlink="#00FF00" alink="#FFFFFF">
+
+<p><big><big><strong><font face="Verdana, Arial">The BootSector</font></strong></big></big></p>
+
+<p><small><font face="Verdana, Arial">The BootSector is loaded by the MBR or by the BIOS.
+When it gets control, it does not know where it is, or what state the PC is in. It only
+knows that it is just 512 bytes and that it isn't much, so it's first task is too load
+more code into memory and jump to it. Also, another 'ByteConsumer' is located in this
+sector. It is a table that holds information required to load the System-code modules, and
+later for accessing this partition for read/write operations.</font></small></p>
+
+<table border="0" width="100%">
+  <tr>
+    <td bgColor="#006400" vAlign="top" width="122" colspan="2"><small><font
+    face="Verdana, Arial">Offset</font></small></td>
+    <td bgColor="#006400" vAlign="top" width="49"><small><font face="Verdana, Arial">Length</font></small></td>
+    <td bgColor="#006400" vAlign="top" width="623"><small><font face="Verdana, Arial">Description</font></small></td>
+  </tr>
+  <tr>
+    <td bgColor="#282828" vAlign="top" width="61"><font face="Verdana, Arial" color="#FFFFFF"><small>0000h</small></font></td>
+    <td bgColor="#282828" vAlign="top" width="61"><small><font face="Verdana, Arial"
+    color="#FFFFFF">0000d</font></small></td>
+    <td bgColor="#282828" vAlign="top" width="49"><font face="Verdana, Arial" color="#FFFFFF"><small>8h</small></font></td>
+    <td bgColor="#282828" vAlign="top" width="623"><font face="Verdana, Arial" color="#FFFFFF"><small>80X86
+    code jump past this datastructure.</small></font></td>
+  </tr>
+  <tr>
+    <td bgColor="#141414" vAlign="top" width="61"><font face="Verdana, Arial" color="#FFFFFF"><small>0008h</small></font></td>
+    <td bgColor="#141414" vAlign="top" width="61"><small><font face="Verdana, Arial"
+    color="#FFFFFF">0008d</font></small></td>
+    <td bgColor="#141414" vAlign="top" width="49"><font face="Verdana, Arial" color="#FFFFFF"><small>8h</small></font></td>
+    <td bgColor="#141414" vAlign="top" width="623"><font face="Verdana, Arial" color="#FFFFFF"><small>'+V2_FS+'
+    signature, terminated with a zero.</small></font></td>
+  </tr>
+  <tr>
+    <td bgColor="#282828" vAlign="top" width="61"><font face="Verdana, Arial" color="#FFFFFF"><small>0010h</small></font></td>
+    <td bgColor="#282828" vAlign="top" width="61"><small><font face="Verdana, Arial"
+    color="#FFFFFF">0016d</font></small></td>
+    <td bgColor="#282828" vAlign="top" width="49"><font face="Verdana, Arial" color="#FFFFFF"><small>3h</small></font></td>
+    <td bgColor="#282828" vAlign="top" width="623"><font face="Verdana, Arial" color="#FFFFFF"><small>High
+    Version number (currently ('000')</small></font></td>
+  </tr>
+  <tr>
+    <td bgColor="#141414" vAlign="top" width="61"><font face="Verdana, Arial" color="#FFFFFF"><small>0013h</small></font></td>
+    <td bgColor="#141414" vAlign="top" width="61"><small><font face="Verdana, Arial"
+    color="#FFFFFF">0019d</font></small></td>
+    <td bgColor="#141414" vAlign="top" width="49"><font face="Verdana, Arial" color="#FFFFFF"><small>1h</small></font></td>
+    <td bgColor="#141414" vAlign="top" width="623"><font face="Verdana, Arial" color="#FFFFFF"><small>'.'
+    (Dot)</small></font></td>
+  </tr>
+  <tr>
+    <td bgColor="#282828" vAlign="top" width="61"><small><font face="Verdana, Arial"
+    color="#FFFFFF">0014h</font></small></td>
+    <td bgColor="#282828" vAlign="top" width="61"><small><font face="Verdana, Arial"
+    color="#FFFFFF">0020d</font></small></td>
+    <td bgColor="#282828" vAlign="top" width="49"><small><font face="Verdana, Arial"
+    color="#FFFFFF">3h</font></small></td>
+    <td bgColor="#282828" vAlign="top" width="623"><small><font face="Verdana, Arial"
+    color="#FFFFFF">Low Version number (currently '007')</font></small></td>
+  </tr>
+  <tr>
+    <td bgColor="#141414" vAlign="top" width="61"><small><font face="Verdana, Arial"
+    color="#FFFFFF">0017h</font></small></td>
+    <td bgColor="#141414" vAlign="top" width="61"><small><font face="Verdana, Arial"
+    color="#FFFFFF">0023d</font></small></td>
+    <td bgColor="#141414" vAlign="top" width="49"><small><font face="Verdana, Arial"
+    color="#FFFFFF">1h</font></small></td>
+    <td bgColor="#141414" vAlign="top" width="623"><small><font face="Verdana, Arial"
+    color="#FFFFFF">Zero (0)</font></small></td>
+  </tr>
+  <tr>
+    <td bgColor="#282828" vAlign="top" width="61"><small><font face="Verdana, Arial"
+    color="#FFFFFF">0018h</font></small></td>
+    <td bgColor="#282828" vAlign="top" width="61"><small><font face="Verdana, Arial"
+    color="#FFFFFF">0024d</font></small></td>
+    <td bgColor="#282828" vAlign="top" width="49"><small><font face="Verdana, Arial"
+    color="#FFFFFF">4h</font></small></td>
+    <td bgColor="#282828" vAlign="top" width="623"><small><font face="Verdana, Arial"
+    color="#FFFFFF">Maximum Objects. This value indicates the maximum amount of files that can
+    be loaded on this partition simultaneously. It gets set at format time and is fixed
+    afterwards</font></small></td>
+  </tr>
+  <tr>
+    <td bgColor="#141414" vAlign="top" width="61"><small><font face="Verdana, Arial"
+    color="#FFFFFF">001Ch</font></small></td>
+    <td bgColor="#141414" vAlign="top" width="61"><small><font face="Verdana, Arial"
+    color="#FFFFFF">0028d</font></small></td>
+    <td bgColor="#141414" vAlign="top" width="49"><small><font face="Verdana, Arial"
+    color="#FFFFFF">4h</font></small></td>
+    <td bgColor="#141414" vAlign="top" width="623"><small><font face="Verdana, Arial"
+    color="#FFFFFF">Current Objects. Indicates the current amount of files stored on this
+    partition</font></small></td>
+  </tr>
+  <tr>
+    <td bgColor="#282828" vAlign="top" width="61"><small><font face="Verdana, Arial"
+    color="#FFFFFF">0020h</font></small></td>
+    <td bgColor="#282828" vAlign="top" width="61"><small><font face="Verdana, Arial"
+    color="#FFFFFF">0032d</font></small></td>
+    <td bgColor="#282828" vAlign="top" width="49"><small><font face="Verdana, Arial"
+    color="#FFFFFF">4h</font></small></td>
+    <td bgColor="#282828" vAlign="top" width="623"><small><font face="Verdana, Arial"
+    color="#FFFFFF">MaxSector. The total amount of sectors of this partition. (Multiply by 512
+    to get the amount of bytes)</font></small></td>
+  </tr>
+  <tr>
+    <td bgColor="#141414" vAlign="top" width="61"><small><font face="Verdana, Arial"
+    color="#FFFFFF">0024h</font></small></td>
+    <td bgColor="#141414" vAlign="top" width="61"><small><font face="Verdana, Arial"
+    color="#FFFFFF">0036d</font></small></td>
+    <td bgColor="#141414" vAlign="top" width="49"><small><font face="Verdana, Arial"
+    color="#FFFFFF">4h</font></small></td>
+    <td bgColor="#141414" vAlign="top" width="623"><small><font face="Verdana, Arial"
+    color="#FFFFFF">FirstAvailableSector. This value indicates the first free sector that can
+    be used to write data to. Subtract this from MaxSectors to get the amount of free sectors.
+    </font></small></td>
+  </tr>
+  <tr>
+    <td bgColor="#282828" vAlign="top" width="61"><small><font face="Verdana, Arial"
+    color="#FFFFFF">0028h</font></small></td>
+    <td bgColor="#282828" vAlign="top" width="61"><small><font face="Verdana, Arial"
+    color="#FFFFFF">0040d</font></small></td>
+    <td bgColor="#282828" vAlign="top" width="49"><small><font face="Verdana, Arial"
+    color="#FFFFFF">1h</font></small></td>
+    <td bgColor="#282828" vAlign="top" width="623"><small><font face="Verdana, Arial"
+    color="#FFFFFF">Sectors used by System16</font></small></td>
+  </tr>
+  <tr>
+    <td bgColor="#141414" vAlign="top" width="61"><small><font face="Verdana, Arial"
+    color="#FFFFFF">0029h</font></small></td>
+    <td bgColor="#141414" vAlign="top" width="61"><small><font face="Verdana, Arial"
+    color="#FFFFFF">0041d</font></small></td>
+    <td bgColor="#141414" vAlign="top" width="49"><small><font face="Verdana, Arial"
+    color="#FFFFFF">1h</font></small></td>
+    <td bgColor="#141414" vAlign="top" width="623"><small><font face="Verdana, Arial"
+    color="#FFFFFF">Sectors used by System32</font></small></td>
+  </tr>
+  <tr>
+    <td bgColor="#282828" vAlign="top" width="61"><small><font face="Verdana, Arial"
+    color="#FFFFFF">002Ah</font></small></td>
+    <td bgColor="#282828" vAlign="top" width="61"><small><font face="Verdana, Arial"
+    color="#FFFFFF">0042d</font></small></td>
+    <td bgColor="#282828" vAlign="top" width="49"><small><font face="Verdana, Arial"
+    color="#FFFFFF">4h</font></small></td>
+    <td bgColor="#282828" vAlign="top" width="623"><small><font face="Verdana, Arial"
+    color="#FFFFFF">FirstDataSector. This value is the sectorindex to the FileList.</font></small></td>
+  </tr>
+  <tr>
+    <td bgColor="#141414" vAlign="top" width="61"><small><font face="Verdana, Arial"
+    color="#FFFFFF">002Eh</font></small></td>
+    <td bgColor="#141414" vAlign="top" width="61"><small><font face="Verdana, Arial"
+    color="#FFFFFF">0046d</font></small></td>
+    <td bgColor="#141414" vAlign="top" width="49"><small><font face="Verdana, Arial"
+    color="#FFFFFF">1D0h</font></small></td>
+    <td bgColor="#141414" vAlign="top" width="623"><small><font face="Verdana, Arial"
+    color="#FFFFFF">Bootcode</font></small></td>
+  </tr>
+  <tr>
+    <td bgColor="#282828" vAlign="top" width="61"><small><font face="Verdana, Arial"
+    color="#FFFFFF">01FEh</font></small></td>
+    <td bgColor="#282828" vAlign="top" width="61"><small><font face="Verdana, Arial"
+    color="#FFFFFF">0002d</font></small></td>
+    <td bgColor="#282828" vAlign="top" width="49"><small><font face="Verdana, Arial"
+    color="#FFFFFF">2h</font></small></td>
+    <td bgColor="#282828" vAlign="top" width="623"><small><font face="Verdana, Arial"
+    color="#FFFFFF">55AAh signature</font></small></td>
+  </tr>
+</table>
+</body>
+</html>

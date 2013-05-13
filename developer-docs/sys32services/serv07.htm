@@ -1,0 +1,119 @@
+<html>
+
+<head>
+
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+
+<base target="_self">
+<title>System32 Services</title>
+<meta name="Microsoft Border" content="none"></head>
+
+<body bgcolor="#000000" bgproperties="fixed" text="#FFFFFF" link="#FFFFFF" vlink="#FFFFFF" alink="#FFFFFF">
+
+<p><font face="Century Gothic"><big><big><strong>System32 Function 07 (07h) - Write
+physical disk sector(s)</strong></big></big></font></p>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0" height="23">
+  <tr>
+    <td width="100%" bgcolor="#00384A" height="21"><font face="Century Gothic"><big><strong>Description</strong></big></font></td>
+  </tr>
+</table>
+
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+  <tr>
+    <td><font face="Century Gothic">This is the main disk access service. It writes data
+    directly from the 'DiskBuffer' to sectors on a physical disk.<br>
+    This service is used by all other services and routines in System32 to access disk drives.
+    Every disk can have a different driver to handle diskrequests, this makes it possible for
+    all applications to support&nbsp; media that is currently not yet supported by adding one
+    single driver. This also could be used to create RamDisks, or encrypted data on disks.</font></td>
+  </tr>
+</table>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0" height="23">
+  <tr>
+    <td width="100%" bgcolor="#00384A" height="21"><font face="Century Gothic"><big><strong>Input</strong></big></font></td>
+  </tr>
+</table>
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <th width="59"><p align="right"><font face="Century Gothic">AL</font></th>
+    <td><font face="Century Gothic">07h</font></td>
+  </tr>
+  <tr>
+    <th width="59"><p align="right"><font face="Century Gothic">DL</font></th>
+    <td><font face="Century Gothic">ID in the 'DiskList', 0 for a floppy, 80h for the first
+    physical disk, etc.</font></td>
+  </tr>
+  <tr>
+    <th width="59"><p align="right"><font face="Century Gothic">EBX</font></th>
+    <td><font face="Century Gothic">Sector to start writing to</font></td>
+  </tr>
+  <tr>
+    <th width="59"><p align="right"><font face="Century Gothic">ECX</font></th>
+    <td><font face="Century Gothic">Amount of sectors to write</font></td>
+  </tr>
+</table>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0" height="23">
+  <tr>
+    <td width="100%" bgcolor="#00384A" height="21"><font face="Century Gothic"><big><strong>Output</strong></big></font></td>
+  </tr>
+</table>
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <th width="59"><p align="right"><font face="Century Gothic">None</font></th>
+    <td></td>
+  </tr>
+</table>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0" height="23">
+  <tr>
+    <td width="100%" bgcolor="#00384A" height="21"><font face="Century Gothic"><big><strong>Errorcodes</strong></big></font></td>
+  </tr>
+</table>
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <th width="59"><p align="right"><font face="Century Gothic">10h</font></th>
+    <td><font face="Century Gothic">'That partition does not exist.'</font></td>
+  </tr>
+  <tr>
+    <th width="59"><p align="right"><font face="Century Gothic">X?</font></th>
+    <td><font face="Century Gothic">'Sector write failure.'</font></td>
+  </tr>
+</table>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0" height="23">
+  <tr>
+    <td width="100%" bgcolor="#00384A" height="21"><font face="Century Gothic"><big><strong>Notes</strong></big></font></td>
+  </tr>
+</table>
+
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+  <tr>
+    <td><font face="Century Gothic">Since most diskaccess services from, for example, the BIOS
+    are RealMode, the DiskBuffer is limited to 0FFFFh Bytes. </font></td>
+  </tr>
+</table>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0" height="23">
+  <tr>
+    <td width="100%" bgcolor="#00384A" height="21"><font face="Century Gothic"><big><strong>Development
+    Status</strong></big></font></td>
+  </tr>
+</table>
+
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+  <tr>
+    <td><font face="Century Gothic">Build support for continuing datawriting for blocks bigger
+    than the DiskBuffer</font></td>
+  </tr>
+</table>
+
+<p align="center"><a href="../../../../V2_OS/new/developer/system32servicesdescription.htm"><big><big><strong><font face="Century Gothic">Back</font></strong></big></big></a><br>
+</p>
+</body>
+</html>

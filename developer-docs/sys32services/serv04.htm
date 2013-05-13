@@ -1,0 +1,111 @@
+<html>
+
+<head>
+
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+
+<base target="_self">
+<title>System32 Services</title>
+<meta name="Microsoft Border" content="none"></head>
+
+<body bgcolor="#000000" bgproperties="fixed" text="#FFFFFF" link="#FFFFFF" vlink="#FFFFFF" alink="#FFFFFF">
+
+<p><font face="Century Gothic"><big><big><strong>System32 Function 04 (04h) - Send text to
+standard output device.</strong></big></big></font></p>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0" height="23">
+  <tr>
+    <td width="100%" bgcolor="#00384A" height="21"><font face="Century Gothic"><big><strong>Description</strong></big></font></td>
+  </tr>
+</table>
+
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+  <tr>
+    <td><font face="Century Gothic">A real usefull and easy service to print text. Currently
+    only the textmode-screen can be used as a standard output device, but the mechanism to
+    support other oututdevices is already implemented. Therefor it is recommended to use this
+    service instead of poking to the 0xb8000 area yourself.</font></td>
+  </tr>
+</table>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0" height="23">
+  <tr>
+    <td width="100%" bgcolor="#00384A" height="21"><font face="Century Gothic"><big><strong>Input</strong></big></font></td>
+  </tr>
+</table>
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <th width="59"><p align="right"><font face="Century Gothic">AL</font></th>
+    <td><font face="Century Gothic">04h</font></td>
+  </tr>
+  <tr>
+    <th width="59"><p align="right"><font face="Century Gothic">DS</font></th>
+    <td><font face="Century Gothic">Selector of the text string</font></td>
+  </tr>
+  <tr>
+    <th width="59"><p align="right"><font face="Century Gothic">EDI</font></th>
+    <td><font face="Century Gothic">Offset to the text string</font></td>
+  </tr>
+</table>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0" height="23">
+  <tr>
+    <td width="100%" bgcolor="#00384A" height="21"><font face="Century Gothic"><big><strong>Output</strong></big></font></td>
+  </tr>
+</table>
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <th width="59"><p align="right"><font face="Century Gothic">None</font></th>
+    <td><font face="Century Gothic">Always successful</font></td>
+  </tr>
+</table>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0" height="23">
+  <tr>
+    <td width="100%" bgcolor="#00384A" height="21"><font face="Century Gothic"><big><strong>Errorcodes</strong></big></font></td>
+  </tr>
+</table>
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <th width="59"><p align="right"><font face="Century Gothic">None</font></th>
+    <td><font face="Century Gothic">Always successfu</font></td>
+  </tr>
+</table>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0" height="23">
+  <tr>
+    <td width="100%" bgcolor="#00384A" height="21"><font face="Century Gothic"><big><strong>Notes</strong></big></font></td>
+  </tr>
+</table>
+
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+  <tr>
+    <td><font face="Century Gothic">*Text strings should be 0 terminated.<br>
+    *Control characters like 13(Cariage return), 10 (Linefeed) etc. are all supported.</font></td>
+  </tr>
+</table>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0" height="23">
+  <tr>
+    <td width="100%" bgcolor="#00384A" height="21"><font face="Century Gothic"><big><strong>Development
+    Status</strong></big></font></td>
+  </tr>
+</table>
+
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+  <tr>
+    <td><font face="Century Gothic">*Color can now only be set by System32, maybe something in
+    the textstring could be defined as a 'color-set' command. Like:<br>
+    0xFFh, 1Fh, 'Hello World',13,10, 0xFFh, 07h, 'Hi',0<br>
+    This would print the text 'Hello World' in white(f) on blue(1), and on the next line 'Hi',
+    in grey(7) on black(0)</font></td>
+  </tr>
+</table>
+
+<p align="center"><a href="../../../../V2_OS/new/developer/system32servicesdescription.htm"><big><big><strong><font face="Century Gothic">Back</font></strong></big></big></a><br>
+</p>
+</body>
+</html>

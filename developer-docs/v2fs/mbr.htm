@@ -1,0 +1,172 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<meta name="Microsoft Border" content="none">
+<base target="bottom">
+<title>The MBR</title>
+</head>
+
+<body bgcolor="#000000" text="#FFFFFF" link="#00FF00" vlink="#00FF00" alink="#FFFFFF">
+
+<p><big><big><strong><font face="Verdana, Arial">The MBR</font></strong></big></big></p>
+
+<p><font face="Verdana, Arial"><small>The MBR(Master Boot Record) is the very first sector
+of a physical disk(not a floppy). If this disk is the disk of which the system will boot,
+this sector is also the very first sector that is being loaded to memory, and executed.
+This is done by the bios at startup. Because of this, this sector has to start with valid
+80x86 code. This can be a few things, it can be the Linux Bootloader, Lilo, the windows
+bootloader -OR- the V2_OS Bootloader, or something completely different. Note that a
+sector is just 512 bytes, so it's first task is too study the disk, and see if it can load
+more sectors and pass control to them. This is done through the partition table.</small><br>
+<small>When the MBR code has scanned the partition table and found a partition marked as
+active, it positions the HD-heads, loads the first sector of that partition into memory,
+and executes it. This first sector of a partition is called a 'BootSector'. The MBR is
+free to choose a location for this BootSector.</small><br>
+<br>
+<small>The MBR of the V2_FS does not necessarily have to be the V2_OS MBR as long as this
+MBR performs all task described above, and has a valid partitiontable, and does not rely
+on extra sectors.</small></font><br>
+<font face="Verdana, Arial"><strong><br>
+<small>The MBR Format:</small></strong></font></p>
+
+<table border="0" width="100%" height="120">
+  <tr>
+    <td bgColor="#006400" vAlign="top" width="122" colspan="2" height="18"><small><font
+    face="Verdana, Arial">Offset</font></small></td>
+    <td bgColor="#006400" vAlign="top" width="623" height="18"><small><font
+    face="Verdana, Arial">Description</font></small></td>
+  </tr>
+  <tr>
+    <td bgColor="#282828" vAlign="top" width="61" height="21"><small><font
+    face="Verdana, Arial">0000h</font></small></td>
+    <td bgColor="#282828" vAlign="top" width="61" height="21"><small><font
+    face="Verdana, Arial">1BEh</font></small></td>
+    <td bgColor="#282828" vAlign="top" width="623" height="21"><small><font
+    face="Verdana, Arial">80X86 code to locate a bootable partition from the
+    partitiontables(possibly on other disks too), load it, and execute it.</font></small></td>
+  </tr>
+  <tr>
+    <td bgColor="#141414" vAlign="top" width="61" height="21"><small><font
+    face="Verdana, Arial">01BEh</font></small></td>
+    <td bgColor="#141414" vAlign="top" width="61" height="21"><small><font
+    face="Verdana, Arial">10h</font></small></td>
+    <td bgColor="#141414" vAlign="top" width="623" height="21"><small><font
+    face="Verdana, Arial">Partition Table Entry #1</font></small></td>
+  </tr>
+  <tr>
+    <td bgColor="#282828" vAlign="top" width="61" height="21"><small><font
+    face="Verdana, Arial">01CEh</font></small></td>
+    <td bgColor="#282828" vAlign="top" width="61" height="21"><small><font
+    face="Verdana, Arial">10h</font></small></td>
+    <td bgColor="#282828" vAlign="top" width="623" height="21"><small><font
+    face="Verdana, Arial">Partition Table Entry #2</font></small></td>
+  </tr>
+  <tr>
+    <td bgColor="#141414" vAlign="top" width="61" height="21"><small><font
+    face="Verdana, Arial">01DEh</font></small></td>
+    <td bgColor="#141414" vAlign="top" width="61" height="21"><small><font
+    face="Verdana, Arial">10h</font></small></td>
+    <td bgColor="#141414" vAlign="top" width="623" height="21"><small><font
+    face="Verdana, Arial">Partition Table Entry #3</font></small></td>
+  </tr>
+  <tr>
+    <td bgColor="#282828" vAlign="top" width="61" height="21"><small><font
+    face="Verdana, Arial">01EEh</font></small></td>
+    <td bgColor="#282828" vAlign="top" width="61" height="21"><small><font
+    face="Verdana, Arial">10h</font></small></td>
+    <td bgColor="#282828" vAlign="top" width="623" height="21"><small><font
+    face="Verdana, Arial">Partition Table Entry #4</font></small></td>
+  </tr>
+  <tr>
+    <td bgColor="#141414" vAlign="top" width="61" height="1"><small><font
+    face="Verdana, Arial">01FEh</font></small></td>
+    <td bgColor="#141414" vAlign="top" width="61" height="1"><small><font
+    face="Verdana, Arial">2</font></small></td>
+    <td bgColor="#141414" vAlign="top" width="623" height="1"><small><font
+    face="Verdana, Arial">MBR Signature AA55h</font></small></td>
+  </tr>
+</table>
+
+<p><small><strong><font face="Verdana, Arial">Partition Table Entry:</font></strong></small></p>
+
+<table border="0" width="100%" height="120">
+  <tr>
+    <td bgColor="#006400" vAlign="top" width="122" colspan="2" height="18"><small><font
+    face="Verdana, Arial">Offset</font></small></td>
+    <td bgColor="#006400" vAlign="top" width="623" height="18"><small><font
+    face="Verdana, Arial">Description</font></small></td>
+  </tr>
+  <tr>
+    <td bgColor="#282828" vAlign="top" width="61" height="21"><font face="Verdana, Arial"><small>0000h</small></font></td>
+    <td bgColor="#282828" vAlign="top" width="61" height="21"><font face="Verdana, Arial"><small>1h</small></font></td>
+    <td bgColor="#282828" vAlign="top" width="623" height="21"><small><font
+    face="Verdana, Arial">80h means this partition has a valid BootSector. 0h means it has
+    not.(This field corresponds to the 'active' option in fdisk under dos/windows)</font></small></td>
+  </tr>
+  <tr>
+    <td bgColor="#141414" vAlign="top" width="61" height="21"><font face="Verdana, Arial"><small>0001h</small></font></td>
+    <td bgColor="#141414" vAlign="top" width="61" height="21"><font face="Verdana, Arial"><small>1h</small></font></td>
+    <td bgColor="#141414" vAlign="top" width="623" height="21"><font face="Verdana, Arial"><small>First
+    Head of this sector</small></font></td>
+  </tr>
+  <tr>
+    <td bgColor="#282828" vAlign="top" width="61" height="21"><font face="Verdana, Arial"><small>0002h</small></font></td>
+    <td bgColor="#282828" vAlign="top" width="61" height="21"><font face="Verdana, Arial"><small>1h</small></font></td>
+    <td bgColor="#282828" vAlign="top" width="623" height="21"><font face="Verdana, Arial"><small>First
+    Sector of this partition</small></font></td>
+  </tr>
+  <tr>
+    <td bgColor="#141414" vAlign="top" width="61" height="21"><font face="Verdana, Arial"><small>0003h</small></font></td>
+    <td bgColor="#141414" vAlign="top" width="61" height="21"><font face="Verdana, Arial"><small>1h</small></font></td>
+    <td bgColor="#141414" vAlign="top" width="623" height="21"><font face="Verdana, Arial"><small>First
+    Cylinder of this sector</small></font></td>
+  </tr>
+  <tr>
+    <td bgColor="#282828" vAlign="top" width="61" height="21"><font face="Verdana, Arial"><small>0004h</small></font></td>
+    <td bgColor="#282828" vAlign="top" width="61" height="21"><font face="Verdana, Arial"><small>1h</small></font></td>
+    <td bgColor="#282828" vAlign="top" width="623" height="21"><small><font
+    face="Verdana, Arial">FileSystem Indicator. 33h for V2_FS, for other ID's, click here</font></small></td>
+  </tr>
+  <tr>
+    <td bgColor="#141414" vAlign="top" width="61" height="1"><font face="Verdana, Arial"><small>0005h</small></font></td>
+    <td bgColor="#141414" vAlign="top" width="61" height="1"><font face="Verdana, Arial"><small>1h</small></font></td>
+    <td bgColor="#141414" vAlign="top" width="623" height="1"><font face="Verdana, Arial"><small>Last
+    Head of this sector</small></font></td>
+  </tr>
+  <tr>
+    <td bgColor="#282828" vAlign="top" width="61" height="21"><font face="Verdana, Arial"><small>0006h</small></font></td>
+    <td bgColor="#282828" vAlign="top" width="61" height="21"><font face="Verdana, Arial"><small>1h</small></font></td>
+    <td bgColor="#282828" vAlign="top" width="623" height="21"><font face="Verdana, Arial"><small>Last
+    Sector of this partition</small></font></td>
+  </tr>
+  <tr>
+    <td bgColor="#141414" vAlign="top" width="61" height="21"><font face="Verdana, Arial"><small>0007h</small></font></td>
+    <td bgColor="#141414" vAlign="top" width="61" height="21"><font face="Verdana, Arial"><small>1h</small></font></td>
+    <td bgColor="#141414" vAlign="top" width="623" height="21"><font face="Verdana, Arial"><small>Last
+    Cylinder of this partition</small></font></td>
+  </tr>
+  <tr>
+    <td bgColor="#282828" vAlign="top" width="61" height="21"><font face="Verdana, Arial"><small>0008h</small></font></td>
+    <td bgColor="#282828" vAlign="top" width="61" height="21"><font face="Verdana, Arial"><small>4h</small></font></td>
+    <td bgColor="#282828" vAlign="top" width="623" height="21"><small><font
+    face="Verdana, Arial">DWord relative(Absolute) starting sector</font></small></td>
+  </tr>
+  <tr>
+    <td bgColor="#141414" vAlign="top" width="61" height="21"><font face="Verdana, Arial"><small>000Ch</small></font></td>
+    <td bgColor="#141414" vAlign="top" width="61" height="21"><font face="Verdana, Arial"><small>4h</small></font></td>
+    <td bgColor="#141414" vAlign="top" width="623" height="21"><small><font
+    face="Verdana, Arial">DWord relative(Absolute) starting sector</font></small></td>
+  </tr>
+</table>
+
+<p><font face="Verdana, Arial"><strong><small>Extended partitions:</small><br>
+</strong><small>Some filesystems support 'Extended partitions'. This means that on the
+bootsector of this partition, there is no 80x86 code, but another MBR Structure, including
+another partition table ! Extended partitions can therefore never be Bootable or Active.</small><br>
+<br>
+<font color="#FFFFFF"><strong>NOTE: </strong></font><font color="#00FF00"><small>The V2_OS
+MBR is not available yet, but you can use any other MBR just the same...</small></font></font></p>
+</body>
+</html>

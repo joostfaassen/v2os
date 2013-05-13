@@ -1,0 +1,211 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<meta name="Microsoft Border" content="none">
+<base target="bottom">
+<title>The FileList</title>
+</head>
+
+<body bgcolor="#000000" text="#FFFFFF" link="#00FF00" vlink="#00FF00" alink="#FFFFFF">
+
+<p><big><big><strong><font face="Verdana, Arial">The FileList</font></strong></big></big></p>
+
+<p><small><font face="Verdana, Arial">This structure is found at the 'First Data Sector'
+(Specified in the bootsector, and is repeated as many times as described in 'MaxObjects'
+(also in the bootsector). It is a chain of information on all files that are stored on
+this partition.</font></small></p>
+
+<table border="0" width="100%">
+  <tr>
+    <td bgColor="#006400" vAlign="top" width="122" colspan="2"><small><font
+    face="Verdana, Arial">Offset</font></small></td>
+    <td bgColor="#006400" vAlign="top" width="49"><small><font face="Verdana, Arial">Length</font></small></td>
+    <td bgColor="#006400" vAlign="top" width="623"><small><font face="Verdana, Arial">Description</font></small></td>
+  </tr>
+  <tr>
+    <td bgColor="#282828" vAlign="top" width="61"><font face="Verdana, Arial" color="#FFFFFF"><small>0000h</small></font></td>
+    <td bgColor="#282828" vAlign="top" width="61"><small><font face="Verdana, Arial"
+    color="#FFFFFF">0000d</font></small></td>
+    <td bgColor="#282828" vAlign="top" width="49"><font face="Verdana, Arial" color="#FFFFFF"><small>2h</small></font></td>
+    <td bgColor="#282828" vAlign="top" width="623"><font face="Verdana, Arial" color="#FFFFFF"><small>TimeHigh</small></font></td>
+  </tr>
+  <tr>
+    <td bgColor="#141414" vAlign="top" width="61"><font face="Verdana, Arial" color="#FFFFFF"><small>0002h</small></font></td>
+    <td bgColor="#141414" vAlign="top" width="61"><font face="Verdana, Arial" color="#FFFFFF"><small>0002d</small></font></td>
+    <td bgColor="#141414" vAlign="top" width="49"><font face="Verdana, Arial" color="#FFFFFF"><small>2h</small></font></td>
+    <td bgColor="#141414" vAlign="top" width="623"><font face="Verdana, Arial" color="#FFFFFF"><small>TimeLow
+    (The usage of the 'time' fields is not yet final, it might be the last modification
+    date/time, and/or creation date/time.)</small></font></td>
+  </tr>
+  <tr>
+    <td bgColor="#282828" vAlign="top" width="61"><font face="Verdana, Arial" color="#FFFFFF"><small>0004h</small></font></td>
+    <td bgColor="#282828" vAlign="top" width="61"><font face="Verdana, Arial" color="#FFFFFF"><small>0004d</small></font></td>
+    <td bgColor="#282828" vAlign="top" width="49"><font face="Verdana, Arial" color="#FFFFFF"><small>4h</small></font></td>
+    <td bgColor="#282828" vAlign="top" width="623"><font face="Verdana, Arial" color="#FFFFFF"><small>Number
+    of Sectors. The Number of sectors this file occupies in the 'DataArea'</small></font></td>
+  </tr>
+  <tr>
+    <td bgColor="#141414" vAlign="top" width="61"><font face="Verdana, Arial" color="#FFFFFF"><small>0008h</small></font></td>
+    <td bgColor="#141414" vAlign="top" width="61"><font face="Verdana, Arial" color="#FFFFFF"><small>0008d</small></font></td>
+    <td bgColor="#141414" vAlign="top" width="49"><font face="Verdana, Arial" color="#FFFFFF"><small>4h</small></font></td>
+    <td bgColor="#141414" vAlign="top" width="623"><font face="Verdana, Arial" color="#FFFFFF"><small>StartSector.
+    This value indicates the sector which holds the first piece of data of this file.</small></font></td>
+  </tr>
+  <tr>
+    <td bgColor="#282828" vAlign="top" width="61"><font face="Verdana, Arial" color="#FFFFFF"><small>000Ch</small></font></td>
+    <td bgColor="#282828" vAlign="top" width="61"><font face="Verdana, Arial" color="#FFFFFF"><small>0012d</small></font></td>
+    <td bgColor="#282828" vAlign="top" width="49"><font face="Verdana, Arial" color="#FFFFFF"><small>1h</small></font></td>
+    <td bgColor="#282828" vAlign="top" width="623"><small><font face="Verdana, Arial"
+    color="#FFFFFF">Flags</font></small><div align="right"><table border="0" width="100%">
+      <tr>
+        <td width="5%" bgcolor="#006400"><small><font face="Verdana, Arial">Bit</font></small></td>
+        <td width="95%" bgcolor="#006400"><small><font face="Verdana, Arial">Description</font></small></td>
+      </tr>
+      <tr>
+        <td width="5%" bgcolor="#141414"><small><font face="Verdana, Arial">0</font></small></td>
+        <td width="95%" bgcolor="#141414"><small><font face="Verdana, Arial">1 = Available or
+        deleted, 0 is occupied.</font></small></td>
+      </tr>
+      <tr>
+        <td width="5%" bgcolor="#141414"><small><font face="Verdana, Arial">1..7</font></small></td>
+        <td width="95%" bgcolor="#141414"><small><font face="Verdana, Arial">Reserved</font></small></td>
+      </tr>
+    </table>
+    </div></td>
+  </tr>
+  <tr>
+    <td bgColor="#141414" vAlign="top" width="61"><font face="Verdana, Arial" color="#FFFFFF"><small>000Dh</small></font></td>
+    <td bgColor="#141414" vAlign="top" width="61"><font face="Verdana, Arial" color="#FFFFFF"><small>0013d</small></font></td>
+    <td bgColor="#141414" vAlign="top" width="49"><font face="Verdana, Arial" color="#FFFFFF"><small>4h</small></font></td>
+    <td bgColor="#141414" vAlign="top" width="623"><font face="Verdana, Arial" color="#FFFFFF"><small>FileType.
+    for example 'MVI.' for movies, 'SYS.' for system files or 'MOD.' for system modules. For a
+    full list of FileType. click here</small></font></td>
+  </tr>
+  <tr>
+    <td bgColor="#282828" vAlign="top" width="61"><font face="Verdana, Arial" color="#FFFFFF"><small>0011h</small></font></td>
+    <td bgColor="#282828" vAlign="top" width="61"><font face="Verdana, Arial" color="#FFFFFF"><small>0017d</small></font></td>
+    <td bgColor="#282828" vAlign="top" width="49"><font face="Verdana, Arial" color="#FFFFFF"><small>64h</small></font></td>
+    <td bgColor="#282828" vAlign="top" width="623"><font face="Verdana, Arial" color="#FFFFFF"><small>FileName
+    (0 - terminated)</small></font></td>
+  </tr>
+</table>
+
+<p><small><font face="Verdana, Arial">Only when this file-entry is defined as a movie
+('MOV.'), or a part of a movie ('VID.' or 'SND.'), the above structure is continued with
+this structure:</font></small></p>
+
+<table border="0" width="100%" height="248">
+  <tr>
+    <td bgColor="#006400" vAlign="top" width="122" colspan="2" height="18"><small><font
+    face="Verdana, Arial">Offset</font></small></td>
+    <td bgColor="#006400" vAlign="top" width="49" height="18"><small><font
+    face="Verdana, Arial">Length</font></small></td>
+    <td bgColor="#006400" vAlign="top" width="623" height="18"><small><font
+    face="Verdana, Arial">Description</font></small></td>
+  </tr>
+  <tr>
+    <td bgColor="#282828" vAlign="top" width="61" height="19"><font face="Verdana, Arial"
+    color="#FFFFFF"><small>0051h</small></font></td>
+    <td bgColor="#282828" vAlign="top" width="61" height="19"><font face="Verdana, Arial"
+    color="#FFFFFF"><small>0081d</small></font></td>
+    <td bgColor="#282828" vAlign="top" width="49" height="19"><font face="Verdana, Arial"
+    color="#FFFFFF"><small>4h</small></font></td>
+    <td bgColor="#282828" vAlign="top" width="623" height="19"><font face="Verdana, Arial"
+    color="#FFFFFF"><small>Total number of frames in this movie.</small></font></td>
+  </tr>
+  <tr>
+    <td bgColor="#141414" vAlign="top" width="61" height="82"><font face="Verdana, Arial"
+    color="#FFFFFF"><small>0055h</small></font></td>
+    <td bgColor="#141414" vAlign="top" width="61" height="82"><font face="Verdana, Arial"
+    color="#FFFFFF"><small>0085d</small></font></td>
+    <td bgColor="#141414" vAlign="top" width="49" height="82"><font face="Verdana, Arial"
+    color="#FFFFFF"><small>1h</small></font></td>
+    <td bgColor="#141414" vAlign="top" width="623" height="82"><small><font
+    face="Verdana, Arial" color="#FFFFFF">Flags</font></small><div align="right"><table
+    border="0" width="100%">
+      <tr>
+        <td width="6%" bgcolor="#006400"><small><font face="Verdana, Arial">Bit</font></small></td>
+        <td width="94%" bgcolor="#006400"><small><font face="Verdana, Arial">Description</font></small></td>
+      </tr>
+      <tr>
+        <td width="6%" bgcolor="#282828"><small><font face="Verdana, Arial">0..7</font></small></td>
+        <td width="94%" bgcolor="#282828"><small><font face="Verdana, Arial">Reserved</font></small></td>
+      </tr>
+    </table>
+    </div></td>
+  </tr>
+  <tr>
+    <td bgColor="#282828" vAlign="top" width="61" height="19"><font face="Verdana, Arial"
+    color="#FFFFFF"><small>0056h</small></font></td>
+    <td bgColor="#282828" vAlign="top" width="61" height="19"><font face="Verdana, Arial"
+    color="#FFFFFF"><small>0086d</small></font></td>
+    <td bgColor="#282828" vAlign="top" width="49" height="19"><font face="Verdana, Arial"
+    color="#FFFFFF"><small>1h</small></font></td>
+    <td bgColor="#282828" vAlign="top" width="623" height="19"><font face="Verdana, Arial"
+    color="#FFFFFF"><small>Compression Algorithm.&nbsp; (Currently unused)</small></font></td>
+  </tr>
+  <tr>
+    <td bgColor="#141414" vAlign="top" width="61" height="19"><font face="Verdana, Arial"
+    color="#FFFFFF"><small>0057h</small></font></td>
+    <td bgColor="#141414" vAlign="top" width="61" height="19"><font face="Verdana, Arial"
+    color="#FFFFFF"><small>0087h</small></font></td>
+    <td bgColor="#141414" vAlign="top" width="49" height="19"><font face="Verdana, Arial"
+    color="#FFFFFF"><small>2h</small></font></td>
+    <td bgColor="#141414" vAlign="top" width="623" height="19"><font face="Verdana, Arial"
+    color="#FFFFFF"><small>AudioSamples per Second</small></font></td>
+  </tr>
+  <tr>
+    <td bgColor="#282828" vAlign="top" width="61" height="19"><font face="Verdana, Arial"
+    color="#FFFFFF"><small>0059h</small></font></td>
+    <td bgColor="#282828" vAlign="top" width="61" height="19"><font face="Verdana, Arial"
+    color="#FFFFFF"><small>0089d</small></font></td>
+    <td bgColor="#282828" vAlign="top" width="49" height="19"><font face="Verdana, Arial"
+    color="#FFFFFF"><small>2h</small></font></td>
+    <td bgColor="#282828" vAlign="top" width="623" height="19"><font face="Verdana, Arial"
+    color="#FFFFFF"><small>AudioBytes per Frame</small></font></td>
+  </tr>
+  <tr>
+    <td bgColor="#141414" vAlign="top" width="61" height="19"><font face="Verdana, Arial"
+    color="#FFFFFF"><small>005Bh</small></font></td>
+    <td bgColor="#141414" vAlign="top" width="61" height="19"><font face="Verdana, Arial"
+    color="#FFFFFF"><small>0091d</small></font></td>
+    <td bgColor="#141414" vAlign="top" width="49" height="19"><font face="Verdana, Arial"
+    color="#FFFFFF"><small>2h</small></font></td>
+    <td bgColor="#141414" vAlign="top" width="623" height="19"><font face="Verdana, Arial"
+    color="#FFFFFF"><small>X_Size</small></font></td>
+  </tr>
+  <tr>
+    <td bgColor="#282828" vAlign="top" width="61" height="21"><font face="Verdana, Arial"
+    color="#FFFFFF"><small>005Dh</small></font></td>
+    <td bgColor="#282828" vAlign="top" width="61" height="21"><font face="Verdana, Arial"
+    color="#FFFFFF"><small>0093d</small></font></td>
+    <td bgColor="#282828" vAlign="top" width="49" height="21"><font face="Verdana, Arial"
+    color="#FFFFFF"><small>2h</small></font></td>
+    <td bgColor="#282828" vAlign="top" width="623" height="21"><font face="Verdana, Arial"
+    color="#FFFFFF"><small>Y_Size</small></font></td>
+  </tr>
+  <tr>
+    <td bgColor="#141414" vAlign="top" width="61" height="19"><font face="Verdana, Arial"
+    color="#FFFFFF"><small>005Fh</small></font></td>
+    <td bgColor="#141414" vAlign="top" width="61" height="19"><font face="Verdana, Arial"
+    color="#FFFFFF"><small>0095d</small></font></td>
+    <td bgColor="#141414" vAlign="top" width="49" height="19"><font face="Verdana, Arial"
+    color="#FFFFFF"><small>2h</small></font></td>
+    <td bgColor="#141414" vAlign="top" width="623" height="19"><font face="Verdana, Arial"
+    color="#FFFFFF"><small>FPS</small></font></td>
+  </tr>
+  <tr>
+    <td bgColor="#282828" vAlign="top" width="61" height="21"><font face="Verdana, Arial"
+    color="#FFFFFF"><small>0060h</small></font></td>
+    <td bgColor="#282828" vAlign="top" width="61" height="21"><font face="Verdana, Arial"
+    color="#FFFFFF"><small>0096d</small></font></td>
+    <td bgColor="#282828" vAlign="top" width="49" height="21"><font face="Verdana, Arial"
+    color="#FFFFFF"><small>2h</small></font></td>
+    <td bgColor="#282828" vAlign="top" width="623" height="21"><font face="Verdana, Arial"
+    color="#FFFFFF"><small>AudioSectors per Frame.</small></font></td>
+  </tr>
+</table>
+</body>
+</html>

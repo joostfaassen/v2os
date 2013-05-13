@@ -1,0 +1,115 @@
+<html>
+
+<head>
+
+
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>System32 Services</title>
+<base target="_self">
+<meta name="Microsoft Border" content="none"></head>
+
+<body bgcolor="#000000" text="#FFFFFF" link="#FFFFFF" vlink="#FFFFFF" alink="#FFFFFF" bgproperties="fixed">
+
+<p><font size="4" face="Century Gothic"><strong>System32 Function
+17 (11h) - Announce Server</strong></font></p>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" height="23">
+    <tr>
+        <td width="100%" bgcolor="#00384A" height="21"><font size="4" face="Century Gothic"><strong>Description</strong></font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="2" cellspacing="0" width="100%">
+    <tr>
+        <td><font face="Century Gothic">Use this service to
+        announce to System32 that your module is actualy a
+        Server.</font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" height="23">
+    <tr>
+        <td width="100%" bgcolor="#00384A" height="21"><font size="4" face="Century Gothic"><strong>Input</strong></font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="2" cellspacing="0">
+    <tr>
+        <th width="59"><p align="right"><font face="Century Gothic">AL</font></p>
+        </th>
+        <td><font face="Century Gothic">17d (11h)</font></td>
+    </tr>
+    <tr>
+        <th width="59"><p align="right"><font face="Century Gothic">EDI</font></p>
+        </th>
+        <td><font face="Century Gothic">Pointer to the 8Byte,
+        zero terminated ModuleID of your module</font></td>
+    </tr>
+    <tr>
+        <th width="59"><p align="right"><font face="Century Gothic">ESI</font></p>
+        </th>
+        <td><font face="Century Gothic">Pointer to a
+        zero-terminated string of your ServerType. <br>
+        Example 'VideoCard', 'Nic' etc.</font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" height="23">
+    <tr>
+        <td width="100%" bgcolor="#00384A" height="21"><font size="4" face="Century Gothic"><strong>Output</strong></font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="2" cellspacing="0">
+    <tr>
+        <th width="59"><p align="right"><font face="Century Gothic">AL</font></p>
+        </th>
+        <td><font face="Century Gothic">0 if Ok, &gt;0 if error</font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" height="23">
+    <tr>
+        <td width="100%" bgcolor="#00384A" height="21"><font size="4" face="Century Gothic"><strong>Errorcodes</strong></font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="2" cellspacing="0">
+    <tr>
+        <th width="59"><p align="right"><font face="Century Gothic">None</font></p>
+        </th>
+        <td><font face="Century Gothic">None</font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" height="23">
+    <tr>
+        <td width="100%" bgcolor="#00384A" height="21"><font size="4" face="Century Gothic"><strong>Notes</strong></font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="2" cellspacing="0" width="100%">
+    <tr>
+        <td><font face="Century Gothic">The string you're sending
+        to System32 describing your servertype IS case-sensative,
+        this means that announcing 'VideoCard' and 'Videocard'
+        would result in two different servertypes(not good)</font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" height="23">
+    <tr>
+        <td width="100%" bgcolor="#00384A" height="21"><font size="4" face="Century Gothic"><strong>Development Status</strong></font></td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="2" cellspacing="0" width="100%">
+    <tr>
+        <td><font face="Century Gothic">Working.</font></td>
+    </tr>
+</table>
+
+<p align="center"><a href="../../../../V2_OS/new/developer/system32servicesdescription.htm"><font size="4" face="Century Gothic"><strong>Back</strong></font></a><br>
+</p>
+</body>
+</html>

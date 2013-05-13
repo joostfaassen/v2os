@@ -1,0 +1,126 @@
+<html>
+
+<head>
+
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+
+<base target="_self">
+<title>System32 Services</title>
+<meta name="Microsoft Border" content="none"></head>
+
+<body bgcolor="#000000" bgproperties="fixed" text="#FFFFFF" link="#FFFFFF" vlink="#FFFFFF" alink="#FFFFFF">
+
+<p><font face="Century Gothic"><big><big><strong>System32 Function 08 (08h) - Request
+Selector</strong></big></big></font></p>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0" height="23">
+  <tr>
+    <td width="100%" bgcolor="#00384A" height="21"><font face="Century Gothic"><big><strong>Description</strong></big></font></td>
+  </tr>
+</table>
+
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+  <tr>
+    <td><font face="Century Gothic">Will allocate a selector in the GDT(Global Descriptor
+    Table). While the V2_OS is flexible enough to let applications add descriptors to the GDT
+    themselves, and reload the GDT, it is recommended to use this Service. This way V2_OS can
+    remove descriptors from an application that crashes or gets terminated for any other
+    reason. </font></td>
+  </tr>
+</table>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0" height="23">
+  <tr>
+    <td width="100%" bgcolor="#00384A" height="21"><font face="Century Gothic"><big><strong>Input</strong></big></font></td>
+  </tr>
+</table>
+
+<table border="0" cellspacing="0" cellpadding="2" height="108">
+  <tr>
+    <th width="59" height="23"><p align="right"><font face="Century Gothic">AL</font></th>
+    <td height="23"><font face="Century Gothic">8h</font></td>
+  </tr>
+  <tr>
+    <th width="59" height="23"><p align="right"><font face="Century Gothic">EDI</font></th>
+    <td height="23"><font face="Century Gothic">Absolute base address of the memoryblock this
+    descriptor should refer to.</font></td>
+  </tr>
+  <tr>
+    <th width="59" height="23"><p align="right"><font face="Century Gothic">EBX</font></th>
+    <td height="23"><font face="Century Gothic">Amount of bytes of the memoryblock this
+    descriptor should refer to.</font></td>
+  </tr>
+  <tr>
+    <th width="59" height="23" valign="top"><p align="right"><font face="Century Gothic">DL</font></th>
+    <td height="23" valign="top"><font face="Century Gothic">0 for a DataDescriptor<br>
+    1 for a CodeDescriptor</font></td>
+  </tr>
+  <tr>
+    <th width="59" height="23" valign="top"><p align="right"><font face="Century Gothic">DH</font></th>
+    <td height="23" valign="top"><font face="Century Gothic">0 for a 16Bit Descriptor<br>
+    1 for a 32Bit Descriptor</font></td>
+  </tr>
+</table>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0" height="23">
+  <tr>
+    <td width="100%" bgcolor="#00384A" height="21"><font face="Century Gothic"><big><strong>Output</strong></big></font></td>
+  </tr>
+</table>
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <th width="59"><p align="right"><font face="Century Gothic">AX</font></th>
+    <td><font face="Century Gothic">The allocated selector(AX?!)</font></td>
+  </tr>
+</table>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0" height="23">
+  <tr>
+    <td width="100%" bgcolor="#00384A" height="21"><font face="Century Gothic"><big><strong>Errorcodes</strong></big></font></td>
+  </tr>
+</table>
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <th width="59"><p align="right"><font face="Century Gothic">None</font></th>
+    <td></td>
+  </tr>
+</table>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0" height="23">
+  <tr>
+    <td width="100%" bgcolor="#00384A" height="21"><font face="Century Gothic"><big><strong>Notes</strong></big></font></td>
+  </tr>
+</table>
+
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+  <tr>
+    <td><font face="Century Gothic">*Allocating a descriptor does NOT mean that the memory
+    range is being protected against allocation by other codemodules !<br>
+    *The presence of the 'G' Bit in the descriptor is decided by System32 based on the value
+    in EBX.<br>
+    *All Descriptors are (ofcourse) initialized with DPL(Descriptor Privilege Level) 0</font></td>
+  </tr>
+</table>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0" height="23">
+  <tr>
+    <td width="100%" bgcolor="#00384A" height="21"><font face="Century Gothic"><big><strong>Development
+    Status</strong></big></font></td>
+  </tr>
+</table>
+
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+  <tr>
+    <td><font face="Century Gothic">Works, but needs fine-tuning...<br>
+    *Should give error when GDT is full(Don't expect it to happen to a 0xFFFFh Byte GDT
+    though...)<br>
+    *That AX register in the 'Output field', was that correct ?!</font></td>
+  </tr>
+</table>
+
+<p align="center"><a href="../../../../V2_OS/new/developer/system32servicesdescription.htm"><big><big><strong><font face="Century Gothic">Back</font></strong></big></big></a><br>
+</p>
+</body>
+</html>

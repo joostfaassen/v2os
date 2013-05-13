@@ -1,0 +1,49 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>The ServerList</title>
+<base target="_self">
+<meta name="Microsoft Border" content="none">
+</head>
+
+<body bgcolor="#000000" text="#FFFFFF" link="#FFFFFF" vlink="#FFFFFF" alink="#FFFFFF"
+bgproperties="fixed">
+
+<p><font size="4" face="Verdana, Arial"><strong>The ServerList<br>
+</strong></font><font size="2" face="Verdana, Arial">In the System16 Info Block, there is
+the entry 'ServerList Address' at offset 124, that points to this block. It's a chained
+structure with information on all Servers that are currently loaded into memory and have
+been successfully initialized. Each entry is 64bytes long. </font></p>
+<div align="left">
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td valign="top" width="20" bgcolor="#006400"><font size="2" face="Verdana, Arial">Ofs</font></td>
+    <td valign="top" width="20" bgcolor="#006400"><font size="2" face="Verdana, Arial">Size</font></td>
+    <td valign="top" width="80%" bgcolor="#006400"><font size="2" face="Verdana, Arial">Description</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">0</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">8</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">ModID that handles this
+    server's requests</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">8</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">16</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">ServerType, example
+    'VideoCard',0 or 'Nic',0 etc.</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">24</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">...</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">Reserved</font></td>
+  </tr>
+</table>
+</div>
+
+<p><font size="2" face="Verdana, Arial">This table can be displayed by using the
+'serverlist' command from the command-prompt.</font></p>
+</body>
+</html>

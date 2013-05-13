@@ -1,0 +1,94 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>The MemoryMap</title>
+<base target="_self">
+<meta name="Microsoft Border" content="none">
+</head>
+
+<body bgcolor="#000000" text="#FFFFFF" link="#FFFFFF" vlink="#FFFFFF" alink="#FFFFFF"
+bgproperties="fixed">
+
+<p><font size="4" face="Verdana, Arial"><strong>The MemoryMap<br>
+</strong></font><font size="2" face="Verdana, Arial">This table represents the
+memorylayout when V2_OS has completed booting. It's not a structure you can find anywhere,
+it's just the way System16 and System32 arrange the memory.</font></p>
+<div align="left">
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td valign="top" width="20" bgcolor="#006400"><font size="2" face="Verdana, Arial">From</font></td>
+    <td valign="top" width="20" bgcolor="#006400"><font size="2" face="Verdana, Arial">To</font></td>
+    <td valign="top" width="80%" bgcolor="#006400"><font size="2" face="Verdana, Arial">Description</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">0</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">03ffh</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">Realmode Interrupt
+    vector Table</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">0400h</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">04ffh</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">Bios DataBlock</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">500</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">...</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">System16</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">...</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">...</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">System32</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">...</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">...</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">IDT (256*8) = 2048 Bytes</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">...</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">...</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">Shared Stack Space</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">...</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">...</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">Key ScanCodeMap (256
+    Bytes)</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">...</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">...</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">Keyboard Buffer (256
+    Bytes)</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">...</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">...</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">GDT (8*8192) = 65536</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">...</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">...</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">DiskBuffer</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">...</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">...</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">ModuleList</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">...</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">...</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">ServerList</font></td>
+  </tr>
+</table>
+</div>
+
+<p><font size="2" face="Verdana, Arial">This table can be displayed by using the 'memmap'
+command from the command-prompt.</font></p>
+</body>
+</html>

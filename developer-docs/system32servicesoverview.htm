@@ -1,0 +1,52 @@
+<html>
+
+<head>
+
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+
+<base target="bottom">
+<title>Developer</title>
+<meta name="Microsoft Border" content="none"></head>
+
+<body bgcolor="#000000" bgproperties="fixed" text="#FFFFFF">
+
+<p><font face="Verdana, Arial"><big><big><strong>System32 Services Overview</strong></big></big></font></p>
+
+<p><font face="Verdana, Arial"><small>System32 provides several services that can be used
+by application programmers. These services are the standard System32 services, but every
+function can be replaced by modules or drivers etc. This way V2_OS is very expandable for
+hardware support, because when one module installs a 'service-upgrade' for for example a
+currently unsupported media, all applications can transparently access these media without
+the need to recompile or reprogram the code.</small><br>
+<br>
+<small>The System32 Services are accessed through an Interrupt handler. System32 Installs
+at bootup a handler on interrupt 20h (32d). By passing the service number in the 'AL'
+register and executing an int 20h instruction, all applications, regardless of the
+language they are written in, can use these services.</small><br>
+<br>
+<strong><small>Some things to keep in mind while using System32 Services:</small></strong><br>
+<br>
+<small>*All System32 Services are by default are executed in 32Bit Protected mode. It is
+possible for these services to jump to 16Bit code or even Realmode. This can be useful for
+accessing for example the Bios, or executing PCI or EISA ROM code.</small><br>
+<br>
+<small>*The application is responsible for providing a valid, reasonable stack. Reasonable
+means 'about' 40h bytes, but keep in mind that 'upgraded services' could require more
+stack space. Since the V2_OS encourages the use of the 'Shared Stack space', there should
+in most cases not be any problems with the stack.</small><br>
+<br>
+<small>*System32 Services expect, like the entire V2_OS that GS = the 4Gig selector.</small><br>
+<br>
+<small>*System32 Services can be called from 32Bit and 16Bit code.</small><br>
+<br>
+<small>*System32 Services can ony be called from protected mode, not from realmode.</small><br>
+<br>
+<small>*System32 Services can use other System32 Services.</small><br>
+<br>
+<small>*System32 Services should only destroy/use the register contents of the specified
+'Output' registers, but in development stages, don't be surprised to see other registers
+be destroyed to. </small><br>
+<br>
+</font></p>
+</body>
+</html>

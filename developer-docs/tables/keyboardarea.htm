@@ -1,0 +1,72 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>The KeyboardArea</title>
+<base target="_self">
+<meta name="Microsoft Border" content="none">
+</head>
+
+<body bgcolor="#000000" text="#FFFFFF" link="#FFFFFF" vlink="#FFFFFF" alink="#FFFFFF"
+bgproperties="fixed">
+
+<p><font size="4" face="Verdana, Arial"><strong>The KeyboardArea and Buffer<br>
+</strong></font><font size="2" face="Verdana, Arial">Everytime a user presses a key, an
+IRQ1 is fired. The default handler for IRQ1 asks the keyboardcontroller what scancode was
+pressed or released. This event is recorded in the Key ScanCodeMap. Every key that is
+pressed has a value of 1, and a zero if released. The handler then translates this
+scancode to an ascii character where possible, and checks the status of the shift-keys to
+see if it needs to be uppercased. Then the ascii character is added to the keyboardbuffer.</font></p>
+<div align="left">
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td valign="top" width="20" bgcolor="#006400"><font size="2" face="Verdana, Arial">From</font></td>
+    <td valign="top" width="20" bgcolor="#006400"><font size="2" face="Verdana, Arial">Size</font></td>
+    <td valign="top" width="80%" bgcolor="#006400"><font size="2" face="Verdana, Arial">Description</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">0</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">255</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">Keyboard ScanCodeMap</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">256</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">255</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">KeyboardBuffer</font></td>
+  </tr>
+</table>
+</div>
+
+<p><font size="2" face="Verdana, Arial">The KeyboardBuffer:</font></p>
+<div align="left">
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td valign="top" width="20" bgcolor="#006400"><font size="2" face="Verdana, Arial">From</font></td>
+    <td valign="top" width="20" bgcolor="#006400"><font size="2" face="Verdana, Arial">Size</font></td>
+    <td valign="top" width="80%" bgcolor="#006400"><font size="2" face="Verdana, Arial">Description</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">0</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">1</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">Size of the
+    KeyboardBuffer (255 characters is default)</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">1</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">1</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">Characters currently in
+    the buffer</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">2</font></td>
+    <td valign="top" width="20"><font size="2" face="Verdana, Arial">...</font></td>
+    <td valign="top" width="80%"><font size="2" face="Verdana, Arial">The characters.</font></td>
+  </tr>
+</table>
+</div>
+
+<p>&nbsp;</p>
+</body>
+</html>

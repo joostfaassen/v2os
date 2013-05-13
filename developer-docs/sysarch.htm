@@ -1,0 +1,431 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<base target="_self">
+<title>System Architecture</title>
+<meta name="Microsoft Border" content="none">
+</head>
+
+<body bgcolor="#000000" bgproperties="fixed" text="#FFFFFF" link="#00FF00" vlink="#00FF00"
+alink="#FFFFFF">
+
+<p><font face="Verdana, Arial"><big><strong>V2_OS System Architecture</strong><br>
+</big><br>
+</font></p>
+
+<table border="0" cellspacing="0" cellpadding="0" height="793">
+  <tr>
+    <td width="120" height="19"><font face="Verdana, Arial"><small><strong>Chapter 01</strong></small></font></td>
+    <td width="395" height="19"><font face="Verdana, Arial"><a href="sysarch.htm#Introduction"><small>Introduction</small></a></font></td>
+  </tr>
+  <tr>
+    <td width="120" height="18"><font face="Verdana, Arial"><small><strong>Chapter 02</strong></small></font></td>
+    <td width="395" height="18"><font face="Verdana, Arial"><a href="sysarch.htm#Bootsequence"><small>The
+    Bootsequence</small></a></font></td>
+  </tr>
+  <tr>
+    <td width="120" height="21"></td>
+    <td width="395" height="21"><font face="Verdana, Arial"><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    - <a href="sysarch.htm#Bootsequence-BIOS">The BIOS</a></small></font></td>
+  </tr>
+  <tr>
+    <td width="120" height="21"></td>
+    <td width="395" height="21"><font face="Verdana, Arial"><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    - <a href="sysarch.htm#Bootsequence-Bootsector">The BootSector (Boot.asm)</a></small></font></td>
+  </tr>
+  <tr>
+    <td width="120" height="21"></td>
+    <td width="395" height="21"><font face="Verdana, Arial"><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    - <a href="sysarch.htm#Bootsequence-Sys16">System16 Initialization(System16.asm)</a></small></font></td>
+  </tr>
+  <tr>
+    <td width="120" height="21"></td>
+    <td width="395" height="21"><font face="Verdana, Arial"><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    - <a href="sysarch.htm#Bootsequence-Sys32">System32 Initialization(System32.asm)</a></small></font></td>
+  </tr>
+  <tr>
+    <td width="120" height="21"></td>
+    <td width="395" height="21"></td>
+  </tr>
+  <tr>
+    <td width="120" height="21"><font face="Verdana, Arial"><small><strong>Chapter 03</strong></small></font></td>
+    <td width="395" height="21"><font face="Verdana, Arial"><a href="sysarch.htm#Modules"><small>Modules</small></a></font></td>
+  </tr>
+  <tr>
+    <td width="120" height="21"></td>
+    <td width="395" height="21"><font face="Verdana, Arial"><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    - <a href="sysarch.htm#Modules-Overview">Overview</a></small></font></td>
+  </tr>
+  <tr>
+    <td width="120" height="21"></td>
+    <td width="395" height="21"><font face="Verdana, Arial"><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    - <a href="sysarch.htm#Modules_Loading">Loading Modules</a></small></font></td>
+  </tr>
+  <tr>
+    <td width="120" height="21"></td>
+    <td width="395" height="21"><font face="Verdana, Arial"><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    - <a href="sysarch.htm#Modules_ModList">The ModList</a></small></font></td>
+  </tr>
+  <tr>
+    <td width="120" height="21"></td>
+    <td width="395" height="21"><font face="Verdana, Arial"><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    - <a href="sysarch.htm#Modules_Mod_Load">The Mod_Load Routine</a></small></font></td>
+  </tr>
+  <tr>
+    <td width="120" height="21"></td>
+    <td width="395" height="21"><font face="Verdana, Arial"><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    - <a href="sysarch.htm#Modules_Service">The Mod_Service Routine</a></small></font></td>
+  </tr>
+  <tr>
+    <td width="120" height="21"></td>
+    <td width="395" height="21"><font face="Verdana, Arial"><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    - <a href="sysarch.htm#Modules_Mod_Unload">The Mod_UnLoad Routine</a></small></font></td>
+  </tr>
+  <tr>
+    <td width="120" height="21"></td>
+    <td width="395" height="21"></td>
+  </tr>
+  <tr>
+    <td width="120" height="21"><font face="Verdana, Arial"><small><strong>Chapter 04</strong></small></font></td>
+    <td width="395" height="21"><font face="Verdana, Arial"><a href="sysarch.htm#Servers"><small>Servers</small></a></font></td>
+  </tr>
+  <tr>
+    <td width="120" height="21"></td>
+    <td width="395" height="21"><font face="Verdana, Arial"><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    - <a href="sysarch.htm#Servers-Overview">Overview</a></small></font></td>
+  </tr>
+  <tr>
+    <td width="120" height="21"></td>
+    <td width="395" height="21"><font face="Verdana, Arial"><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    - <a href="sysarch.htm#Servers-HowToUse">How to use Servers</a></small></font></td>
+  </tr>
+  <tr>
+    <td width="120" height="21"></td>
+    <td width="395" height="21"></td>
+  </tr>
+  <tr>
+    <td width="120" height="21"><font face="Verdana, Arial"><small><strong>Chapter 05</strong></small></font></td>
+    <td width="395" height="21"><font face="Verdana, Arial"><a href="sysarch.htm#DiskXS"><small>DiskAccess</small></a></font></td>
+  </tr>
+  <tr>
+    <td width="120" height="21"></td>
+    <td width="395" height="21"><font face="Verdana, Arial"><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    - <a href="sysarch.htm#DiskXS-Overview">Overview</a></small></font></td>
+  </tr>
+  <tr>
+    <td width="120" height="21"></td>
+    <td width="395" height="21"><font face="Verdana, Arial"><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    - <a href="sysarch.htm#DiskXS-NewDevices">Supporting new devices</a></small></font></td>
+  </tr>
+  <tr>
+    <td width="120" height="21"></td>
+    <td width="395" height="21"></td>
+  </tr>
+  <tr>
+    <td width="120" height="21"><font face="Verdana, Arial"><small><strong>Chapter 06</strong></small></font></td>
+    <td width="395" height="21"><font face="Verdana, Arial"><a href="sysarch.htm#Output"><small>Output
+    Devices</small></a></font></td>
+  </tr>
+  <tr>
+    <td width="120" height="21"></td>
+    <td width="395" height="21"><font face="Verdana, Arial"><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    - <a href="sysarch.htm#Output-Overview">Overview</a></small></font></td>
+  </tr>
+  <tr>
+    <td width="120" height="21"></td>
+    <td width="395" height="21"></td>
+  </tr>
+  <tr>
+    <td width="120" height="21"></td>
+    <td width="395" height="21"></td>
+  </tr>
+  <tr>
+    <td width="120" height="21"></td>
+    <td width="395" height="21"></td>
+  </tr>
+  <tr>
+    <td width="120" height="21"><font face="Verdana, Arial"><small><strong>Comming Up:</strong></small></font></td>
+    <td width="395" height="21"><font face="Verdana, Arial"><small>The Stack</small></font></td>
+  </tr>
+  <tr>
+    <td width="120" height="21"></td>
+    <td width="395" height="21"><font face="Verdana, Arial"><small>The 'RealMode' Portal</small></font></td>
+  </tr>
+  <tr>
+    <td width="120" height="21"></td>
+    <td width="395" height="21"><font face="Verdana, Arial"><small>The PiXeL System</small></font></td>
+  </tr>
+  <tr>
+    <td width="120" height="21"></td>
+    <td width="395" height="21"><font face="Verdana, Arial"><small>System16 InfoTable</small></font></td>
+  </tr>
+  <tr>
+    <td width="120" height="21"></td>
+    <td width="395" height="21"><font face="Verdana, Arial"><small>ServerSpecifications for:</small></font></td>
+  </tr>
+  <tr>
+    <td width="120" height="21"></td>
+    <td width="395" height="21"><font face="Verdana, Arial"><small>&nbsp;&nbsp; -VideoCard
+    Server</small></font></td>
+  </tr>
+  <tr>
+    <td width="120" height="21"></td>
+    <td width="395" height="21"><font face="Verdana, Arial"><small>&nbsp;&nbsp; -PiXeL Server</small></font></td>
+  </tr>
+  <tr>
+    <td width="120" height="21"></td>
+    <td width="395" height="21"><font face="Verdana, Arial"><small>&nbsp;&nbsp; -PCX Server</small></font></td>
+  </tr>
+  <tr>
+    <td width="120" height="21"></td>
+    <td width="395" height="21"><font face="Verdana, Arial"><small>2 Much 2 Mention :)</small></font></td>
+  </tr>
+  <tr>
+    <td width="120" height="21"></td>
+    <td width="395" height="21"></td>
+  </tr>
+  <tr>
+    <td width="120" height="21"></td>
+    <td width="395" height="21"></td>
+  </tr>
+  <tr>
+    <td width="120" height="21"></td>
+    <td width="395" height="21"></td>
+  </tr>
+  <tr>
+    <td width="120" height="21"></td>
+    <td width="395" height="21"></td>
+  </tr>
+</table>
+
+<p><font face="Verdana, Arial"><br>
+<br>
+<big><big><big><strong>Chapter 01</strong></big></big></big><a name="Introduction"></a><br>
+<strong>Chapter 01 : Introduction</strong><br>
+<small>Thes 'System-Architecture' pages are ment to give a 'global' introduction to the
+most important parts of the system, and will help you to understand how the system works,
+how to write applications, modules and servers for the system, and understand the
+'System32 Services'.</small><br>
+<br>
+<big><big><big><strong>Chapter 02</strong></big></big></big><a name="Bootsequence"></a><br>
+<strong>Chapter 02 : The Bootsequence - The BIOS</strong><a name="Bootsequence-BIOS"></a><br>
+<small>To explain the System-Architecture of the V2_OS, it's useful to first look at the
+Bootsequence in a bit more detail... When a PC boots, the BIOS first runs the POST(Power
+On Self Test), searches for IDE, PCI and EISA devices, checks the memory and some other
+things...</small><br>
+<br>
+<small>When it has done all that, the BIOS checks (in the order specified in the BIOS
+Setup) the available bootdevices. If for example the first IDE disk is set as the first
+bootdevice, the BIOS loads the first sector of this disk into memory. This sector is
+called the MBR(Master Boot Record). If this sector has the 'AA55' signature in the last
+two bytes (Offset 1F4H), then the BIOS will make a far jump to this code. What happens
+after that depends of the code located in this first sector(the MBR). If the signature was
+not found, the BIOS will try the same to all the MBR's of all other bootdevices (Second
+IDE disk, floppy stations, CD-ROM drives, zipdrives etc..) If no bootable MBR was found,
+the BIOS loads the ROM-Basic... And since the ROM-Basic is no longer implemented for ages,
+the long forgotten message 'No ROM-Basic installed' appears and the system locks-up.</small><br>
+<br>
+<strong>Chapter 02 : The Bootsequence - The BootSector<a name="Bootsequence-Bootsector"></a></strong><br>
+<small>But if all goes well, this doesn't happen, and the BIOS finds the V2_OS bootsector
+(The source file is called Boot.asm). Note that this is the very first piece of code that
+gets control after the bios. Since it is loaded from only one sector, it has 512 bytes of
+80x86 instructions to find more code. To see how this is done, take a look at the <a
+href="v2fs/bootsector.htm">bootsector-structure</a> in the <a href="v2fs/v2_fs.htm">V2_FS
+pages</a>. At offset 28h, a byte is located describing the amount of sectors 'System16'
+uses, after reading that, the bootsector code positions it's drive heads at the sector
+after the bootsector, and starts loading the 'System16' code, sector per sector(that are
+the dot's seen at bootup) to the absolute address 500h(0050:0000h in segment:offset
+notation). If it fails, a message appears saying 'Failed.SysLock.', if it succeeded, the
+bootsectorcode loads dl with the drive number booted from, dh with the head, cl with the
+cylinder, and ch with the sector number of the bootsector. It then jumps to 600h(yes,
+skipping 100h bytes). After this, this chunk of code will never be used again. Since it
+never knew where it was anyway, it will be overwritten by other code later...</small><br>
+<br>
+<strong>Chapter 02 : The Bootsequence - System16</strong><a name="Bootsequence-Sys16"></a><br>
+<small>For a more detailed look at what 'System16' is, and what it does, see the
+'System16' chapter on the <a href="menus/menu.htm">'Developer Pages'</a>.</small><br>
+<small>System16's role at bootup is not that big, it mainly loads System32 to memory,
+enters protected mode and passes control to System32:</small><br>
+<br>
+<small>To make V2_OS look a bit fancier, System16 first set's the 80x50 textmode(1112h)
+and set's the colors(preserving the original text on the screen). It then reports that
+System16 is in control.</small><br>
+<br>
+<small>At this point the code collects data on the bootdisk used later to load the
+System32 code. When the info is gathered, the 'DiskList' Structure is created. Also some
+general information on the machine is gathered and stored in the 'System16Data Structure'.
+</small><br>
+<br>
+<small>Now it's time to load the System32 code... First the memory location gets
+calculated by adding (512*the amount of sectors of System16) to 600h. Now System32 gets
+loaded into memory sector-per-sector (indicated by dots on the screen)</small><br>
+<br>
+<small>The CMOS area is copied to the CMOS-DataBlock.</small><br>
+<small>The CPU is thoroughly checked to see if it's capable of handling all modes of the
+V2_OS</small><br>
+<small>The A20 enables</small><br>
+<br>
+<small>The system is now ready to leave real-mode, and enter protected-mode. Because
+System32 is responsible for building the GDT, a temporary GDT is created to make the
+switch. This GDT has the following Descriptors:</small><br>
+<small>&nbsp; 00 Null Descriptor</small><br>
+<small>&nbsp; 08 System16 Code</small><br>
+<small>&nbsp; 10 System16 Data</small><br>
+<small>&nbsp; 18 The 4Gig Descriptor</small><br>
+<small>&nbsp; 20 System32 Code</small><br>
+<small>&nbsp; 28 System32 Data</small><br>
+<small>When these descriptors are created, the LGDT instruction is prepared and executed.
+The system is now ready to make the jump out of the RealMode. The system first enters
+protected mode in 16Bit, and from there on it jumps to System32, and the system is now in
+full 32Bit Protected Mode.</small><br>
+<br>
+<strong>Chapter 02 : The Bootsequence - System32</strong><a name="Bootsequence-Sys32"></a><br>
+<small>For a more detailed look at what 'System32' is, and what it does, see the
+'System32' chapter on the <a href="menus/menu.htm">'Developer Pages'</a>.</small><br>
+<small>When System32 gets control, the system has nothing, all irq's are disabled, there
+are no service routines, etc.etc. So System32's first task is too make this system a bit
+usable.</small><br>
+<br>
+<small>First, the 'MemoryMap' is being initialized, a place is found to create an IDT, the
+'Shared Stack Space', the keyboard area, the GDT,&nbsp; the ModList and the ServerList</small><br>
+<small>Now there is a place for an IDT, a smart self-writing code routine is executed that
+builds 256 callable functions that put the IRQ number in EAX and jump to the exception
+handler. This code is found nowhere in the source code and is entirely build up at
+run-time IN the code-segment of System32.</small><br>
+<small>Except for IRQ 0(redirected to the PIT handler), and IRQ 1 (Redirected to the
+keyboard handler)</small><br>
+<small>Interrupt 20h is hooked to the 'famous' System32Service handler. </small><br>
+<small>Now that the IDT is valid, the LIDT instruction is prepared and executed.</small><br>
+<br>
+<small>The code is still on that 'cheap' GDT declared in System16. It's time to create a
+'real' GDT. The 6 entries from the other GDT are copied to the new GDT, and the GDT switch
+is made...</small><br>
+<br>
+<small>The Keyboardsystem is initialized, and ready to use.</small><br>
+<br>
+<small>The system is now stable enough to execute the 'STI' command. (SetInterrupt flag,
+enables hardware IRQ's)</small><br>
+<br>
+<small>The system32 Initialization is done, and the system now goes into
+'CommandPrompt'-mode.</small><br>
+<br>
+<big><big><big><strong>Chapter 03</strong></big></big></big><a name="Modules"></a><br>
+<strong>Chapter 03 : Modules - Overview</strong><a name="Modules-Overview"></a><br>
+<small>Modules are applications that provide 'Services' to other applications. They remain
+loaded in memory, doing nothing, using no processing power, until an application
+'Requests' a service. The type of services these Modules provide can be anything, like
+'foreign filesystem access' or 'Special Video Effects', etc, etc. Modules are 'normal'
+files that can be 'read', 'copied', 'deleted', etc. and they carry the extension
+'*.v2m'(Standing for 'V2_Module')</small><br>
+<br>
+<strong>Chapter 03 : Modules<a name="Modules_Loading"></a> - Loading Modules</strong><br>
+<small>Modules can be loaded at any time, by using the 'loadmod'-command, like 'loadmod
+hda1://Example.v2m'. At this point System32 checks if the file exists, and verifies if the
+file starts with the magic-characters 'V2M.' System32 reads the ModID of the file and
+checks if it is not already loaded. It then verifies if the V2_OS Version required by this
+Module matches the current V2_OS Version.</small><br>
+<br>
+<small>If all these checks are successful, System32 finds a location for the Module in
+High-Memory, and loads it there. It then adds the module to the 'ModuleList', and finally
+the Mod_Load routine is being executed.</small><br>
+<br>
+<strong>Chapter 03 : Modules - T<a name="Modules_ModList"></a>he ModList</strong><br>
+<small>The ModList is the structure in memory that holds information on all the currently
+loaded modules. It knows the ModID, the location in memory, the size, the Code and Data
+descriptors. This list is used for several reasons. Firstly, it prevents that the same
+Module gets loaded twice, this would cause the system to get confused and become unstable.
+Secondly, applications can check this list, eather by themselves, or by some provided
+System32 Functions, and see how to access these Modules and their services. For a more
+technical description of the ModList and the format of the structure, check the 'Modules'
+chapter on the <a href="menus/menu.htm">'Developer Pages'</a>.</small><br>
+<strong><br>
+<a name="Modules_Mod_Load"></a>Chapter 03 : Modules - The Mod_Load Routine</strong><br>
+<small>In the header of a Module, a pointer is included to the 'Mod_Load' routine. This
+routine is called after a module is loaded into memory, and it's environment is completely
+set up. This gives the module the abilty to, for example, allocate some memory space, or
+load some lookuptables from the disk, or initialize some internal structures, hook an
+interrupt or IRQ, initialize a hardware device, etc, etc...</small><br>
+<br>
+<strong>Chapter 03 : Modules -<a name="Modules_Service"></a> The Mod_Service Routines</strong><br>
+<small>Modules become usefull when they can provide so called 'Services'. This way any
+other application or even other Modules can say 'Execute Service 27h of module 'v2_xmple'.</small><br>
+<small>The first 10h service routines are reserved and should not be used. For an example
+of how to implement a Service and the ServiceTable in your module click here.</small><br>
+<br>
+<strong>C<a name="Modules_Mod_Unload"></a>hapter 03 : Modules - The Mod_UnLoad Routine</strong><br>
+<small>By using the 'modunload' command modules can be 'unloaded' at any time. This means
+that firstly the 'mod_unload' routine in a module is being executed so that the module can
+free memory it has allocated during it's life-time and return IRQ handlers, and tell other
+modules it is about to 'die'. Then System32 blanks the code and datasegments of this
+module, frees them and removes the modname from the modlist. Note &gt; This function is
+build in the system, but it is not yet supported.</small><br>
+<br>
+<strong><big><big><big>C</big></big></big><a name="Servers"></a><big><big><big>hapter 04</big></big></big></strong><br>
+<strong>Chapter 04 : Servers - Overvie<a name="Servers-Overview"></a>w</strong><a
+name="Modules-Overview"></a><br>
+<small>Servers are actually just 'Modules'. They have the same Mod_Load, Mod_Service and
+Mod_UnLoad mechanism. The Difference is that in the Mod_Load Routine the use the System32
+Service called 'Announce Server'. This way thay can say 'Hey look ! I'm a VideoCard Server
+!'. At this point an entry is made in the 'ServerList' that says 'VideoCard Server &gt;
+Ask Module 'v2_xmple'. Servers have to support all functions defined for that type of
+'Server'. For VideoCard servers for example, they HAVE to support the 'SetVideo Mode'
+Service, and the 'HardWare Scroll' Service and so on. These Server-Specifications are
+documented here. This mechanism is very usefull to implement 'Drivers' for hardware, or
+'FileFormat' interpreters, 'Video Codecs', 'Memory Managers' (Yes, even virtual memory
+handlers if you like), and the 'Disk' Interfaces. </small><br>
+<br>
+<strong>Chapter 04 : Se<a name="Servers-HowToUse"></a>rvers - How to use Servers.</strong><br>
+<small>When a Server is loaded and metioned in the 'Server-List', applications and other
+modules and servers can execute the System32 Fuctions 'Query Servers' and 'Get Server
+Info'. The 'Query Servers' Command tells the requestor how many servers of a specific type
+are loaded. An application can for example need access to the videocard. It can then call
+this service with 'VideoCard' as it's parameter, and it is told -IF- any servers of that
+type are loaded, and even -How Much-. This means that several Servers of the same type can
+be loaded ! So you could make a videocard server optimized for 3D-work, onother one for
+vectorwork and yet anotherone for motion-video. </small><br>
+<br>
+<strong><big><big><big>C</big></big></big><a name="Servers"></a><big><big><big>hapt</big></big></big><a
+name="DiskXS"></a><big><big><big>er 05</big></big></big></strong><br>
+<strong>Chapter 05 : Dis<a name="DiskXS-Overview">k</a>Access - Overvie<a
+name="Servers-Overview"></a>w</strong><a name="Modules-Overview"></a><br>
+<small>An application can always rely on the System32 Services 'Read Sector(s)' and 'Write
+Sector(s)'. They'll always work, But &gt; Not always optimal. This means, not at their
+maximum speed, or not all devices in your system may be 'recognized'. When the System is
+booted, use the 'disklist' command. This will list all devices that are currently
+recognized, and how they are threated. If you have a floppydrive, you'll find a 'fd0'
+entry in this list which is being threated as a 'BIOS' device. Also if you have a
+harddisk, you'll find a 'hda' or 'hdb' etc entry. These harddisks will also be of the
+'BIOS' type. As long as a device is of the type 'BIOS', expect it to be very slow. Here
+the modules come in handy again. Load for example the 'Ide.v2m' module. It will at load,
+scan your IDE controllers for IDE compatible devices. 99.9 % chance that it will find the
+harddisks. It then tells System32 that if it ever receives a request for that specific
+device, it will be redirected to this module. You can see it if you run the 'disklist'
+command again. The same 'hda' that was of the type 'BIOS' is now of type 'IDE' and being
+handled by 'v2_ide00'. This module is optimized for IDE devices, and will speed up access
+to this device to the maximum available. Note that -every- action that involves this disk
+will speed up too, the 'files' command, the 'file-info' services etc.etc. It is therefore
+important that the correct modules for the devices are always loaded.</small><br>
+<br>
+<strong>Chapter 05 : Di<a name="DiskXS-NewDevices"></a>skAccess - Supporting new devices</strong><a
+name="Modules-Overview"></a><br>
+<small>When the System boots, it will not list any CD-Rom drives you may have in your
+system, it will also not find a IoMega Zip-Drive, or any other devices that are not
+recognized by the BIOS. The DiskModule-mechanism makes it possible to support these
+devices. They will detect their own type of hardware and insert it in the 'DiskList'. The
+'Cdrom.v2m' for example will insert a 'cda', or 'cdb' entry in the disklist, and from
+thereon all applications, modules and servers can access this device without adding
+special support for it. This makes it also possible to create RamDisks or later even
+assign disknames to FTP-Sesions or create network diskshares !</small><br>
+<br>
+<a name="Output"></a><strong><big><big><big>C</big></big></big><a name="Servers"></a><big><big><big>hapter
+06</big></big></big></strong><br>
+<strong>Chapter 06 : Output De<a name="Output-Overview"></a>vices-Overview</strong><br>
+<small>When an application wants to output text/information to the user, it should use the
+System32 Services 'Output Text' and 'Output Number'. Currently the only output device
+supported is the monitor, but when a GUI is being created, it is possible to output to the
+graphics card. Also a modem-sesion could be the output device so you can 'Call' your V2_OS
+system and it will answer as if you would be behind the computer. When network is
+implemented, Telnet sesions can be set up etc. etc. etc.</small></font></p>
+</body>
+</html>
