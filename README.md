@@ -7,6 +7,20 @@ creating your own operating system.
 
 It is licensed under the GPL
 
+## Contributors
+
+* Niklas Angebrand        design
+* Artyom Baguinski        our man at V2_Labs, design, coding, SourceForge admin
+* Lukas Demetz            coding
+* Joost Faassen           created V2_OS
+* Moutaz Haq              bugfix
+* Diego Saenz Martinez    design
+* Jacques Mony            design, coding
+* Dave Poirier            design, coding
+* Viktor Pracht           design, coding
+* Philippe Reynes         KCT management, design, coding, SourceForge admin
+* Samuel Seay             design
+
 ## Resources:
 
 * [V2_OS information at V2_](http://v2.nl/archive/works/v2_os)
