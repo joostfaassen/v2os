@@ -1,3 +1,6 @@
+![alt text](http://joostfaassen.github.io/v2os/image/header.jpg "Chippiedippiedoo!")
+
+
 # V2_OS Sourcecode
 
 The V2_OS is a very fast 32Bit Operating System for 386+ PC's written in 100% assembly code.
